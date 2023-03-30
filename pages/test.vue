@@ -1,1 +1,3 @@
-<template>test</template>
+<template>
+ <GithubIcon />
+</template>

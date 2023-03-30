@@ -17,10 +17,21 @@ onMounted(() => {
   <div class="linkbar"></div>
   <div class="content">
    <div class="btn-group">
-    <button class="btn"></button>
-    <button class="btn"></button>
-    <button class="btn"></button>
-    <button class="btn"></button>
+    <a
+     href="https://github.com/alexespejo?tab=overview&from=2022-03-01&to=2022-03-11"
+     class="btn"
+    >
+     <Icon name="mdi:github" class="icon" />
+    </a>
+    <a href="https://www.linkedin.com/in/alex-espejo-4a604920a/" class="btn">
+     <Icon name="mdi:linkedin" class="icon" />
+    </a>
+    <a href="https://www.instagram.com/_yourpalalex/" class="btn">
+     <Icon name="mdi:instagram" class="icon" />
+    </a>
+    <a href="https://www.instagram.com/_yourpalalex/" class="btn">
+     <Icon name="carbon:user-avatar-filled-alt" class="icon" />
+    </a>
    </div>
    <button class="btn" id="profileImage"></button>
   </div>
@@ -33,6 +44,8 @@ onMounted(() => {
 
 <style lang="scss">
 body {
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
  background-color: #e8e8e8;
  box-sizing: border-box;
  padding: 0;
@@ -43,11 +56,12 @@ nav {
  height: 12vh;
 }
 main {
- height: 80vh;
+ height: 75vh;
 }
-footer {
- height: 8vh;
+.footer {
+ height: 13vh;
 }
+div,
 button,
 input[type="submit"],
 input[type="reset"] {
@@ -64,12 +78,17 @@ input[type="reset"] {
  flex-direction: column;
 }
 .main-body {
+ background: #e2e2e2;
  padding: 0.5rem;
 }
+
 .btn {
  width: 3rem;
  height: 3rem;
  background: #c6c6c6;
+ display: flex;
+ align-items: center;
+ justify-content: center;
  border-width: 1px 0px 0px 1px;
  border-style: solid;
  border-color: rgb(211, 211, 211);
@@ -85,6 +104,27 @@ input[type="reset"] {
   border-bottom: solid 1px #bfbfbf;
   box-shadow: 1px 1px 2px rgba(114, 114, 114, 0.9),
    inset 0.5px 0.5px 1px rgba(227, 227, 227, 0.5);
+ }
+ @media only screen and (min-width: 768px) {
+  width: 3rem;
+  height: 3rem;
+ }
+ @media only screen and (min-width: 992px) {
+  height: 3.5rem;
+  width: 3.5rem;
+ }
+
+ @media only screen and (min-width: 1200px) {
+  height: 4rem;
+  width: 4rem;
+ }
+ .icon {
+  font-size: 3rem;
+  color: #464646;
+
+  &:hover {
+   color: #606060;
+  }
  }
 }
 

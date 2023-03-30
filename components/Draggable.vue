@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps(["title"]);
+const onHold = ref(false);
 
 let topBrkPt = useTopBrkPt();
 let rightBrkPt = useRightBrkPt();
@@ -24,13 +25,13 @@ function dragElement(elmnt) {
   // get the mouse cursor position at startup:
   pos3 = e.clientX;
   pos4 = e.clientY;
-  document.onmouseenter = console.log("mousedown");
+  document.onmousedown = () => {};
   document.onmouseup = closeDragElement;
   // call a function whenever the cursor moves:
   document.onmousemove = elementDrag;
  }
-
  function elementDrag(e) {
+  onHold.value = true;
   e = e || window.event;
   e.preventDefault();
   // calculate the new cursor position:
@@ -43,18 +44,22 @@ function dragElement(elmnt) {
   if (
    !(
     pos4 < topBrkPt.value + 30 ||
-    pos4 >= bottomBrkPt.value - 30 ||
+    pos4 >= bottomBrkPt.value - 50 ||
     pos3 <= 44 ||
     pos3 >= rightBrkPt.value - 50
    )
   ) {
    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+  } else {
+   elmnt.style.top = elmnt.offsetTop + pos2 + "px";
+   elmnt.style.left = elmnt.offsetLeft + pos1 + "px";
   }
  }
 
  function closeDragElement() {
   /* stop moving when mouse button is released:*/
+  onHold.value = false;
   document.onmouseup = null;
   document.onmousemove = null;
  }
@@ -70,90 +75,55 @@ onMounted(() => {
 
 <template>
  <div :id="props.title" class="draggable-element">
-  <div class="icon-container">
+  <div class="icon-container" :class="onHold ? 'dotted-border' : ''">
    <div :id="props.title + 'header'"><slot /></div>
   </div>
  </div>
 </template>
 
 <style lang="scss">
-img {
- @media only screen and (max-width: 600px) {
-  /* styles for extra small devices */
- }
+@media only screen and (max-width: 600px) {
+ /* styles for extra small devices */
+}
 
- /* Small devices (portrait tablets and large phones, 600px and up) */
- @media only screen and (min-width: 600px) {
-  /* styles for small devices */
- }
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+ /* styles for small devices */
+}
 
- /* Medium devices (landscape tablets, 768px and up) */
- @media only screen and (min-width: 768px) {
-  width: 3rem;
-  height: 3rem;
- }
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
 
- /* Large devices (laptops/desktops, 992px and up) */
- @media only screen and (min-width: 992px) {
-  height: 3rem;
-  width: 3rem;
- }
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
 
- /* Extra large devices (large laptops and desktops, 1200px and up) */
- @media only screen and (min-width: 1200px) {
-  /* styles for extra large devices */
-  height: 3rem;
-  width: 3rem;
- }
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+ /* styles for extra large devices */
 }
 /* Extra small devices (phones, 600px and down) */
-#doubleTap {
- cursor: pointer;
-}
+
 .draggable-element {
+ width: fit-content;
+ height: fit-content;
  padding: 0.25rem;
- cursor: pointer;
- font-size: 12px;
  position: absolute;
  z-index: 9;
  text-align: center;
  display: flex;
  flex-direction: column;
 }
-.icon-container {
- border-color: grey;
- border-spacing: 0.01rem;
+.dotted-border {
+ border: grey 2.5px;
  border-style: dotted;
+}
+.icon-container {
+ padding: 0.5rem;
  position: absolute;
  display: flex;
  flex-direction: column;
  align-items: center;
- @media only screen and (max-width: 600px) {
-  /* styles for extra small devices */
- }
-
- /* Small devices (portrait tablets and large phones, 600px and up) */
- @media only screen and (min-width: 600px) {
-  /* styles for small devices */
- }
-
- /* Medium devices (landscape tablets, 768px and up) */
- @media only screen and (min-width: 768px) {
-  width: 3rem;
-  height: 3rem;
- }
-
- /* Large devices (laptops/desktops, 992px and up) */
- @media only screen and (min-width: 992px) {
-  height: 3rem;
-  width: 3rem;
- }
-
- /* Extra large devices (large laptops and desktops, 1200px and up) */
- @media only screen and (min-width: 1200px) {
-  /* styles for extra large devices */
-  height: 3rem;
-  width: 3rem;
- }
 }
 </style>
