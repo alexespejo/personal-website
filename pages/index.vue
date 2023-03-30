@@ -1,3 +1,11 @@
+<script setup lang="ts">
+onMounted(() => {
+ const doubleTap: any = document.getElementById("folder1");
+ doubleTap.addEventListener("dblclick", () => {
+  alert("hello world");
+ });
+});
+</script>
 <template>
  <main>
   <div id="computer-icon">
@@ -26,7 +34,13 @@
 
 <style lang="scss">
 .dragging-icon {
- font-size: 5rem;
+ font-size: 3rem;
+ @media only screen and (min-width: 768px) {
+  font-size: 4rem;
+ }
+ @media only screen and (min-width: 992px) {
+  font-size: 5rem;
+ }
 }
 .icon-shadow {
  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
@@ -41,7 +55,7 @@
  color: #7b7b7b;
 }
 .drag-pos-3 {
- top: 25%;
+ top: 30%;
  left: 25%;
  color: #49a1ff;
 }
@@ -57,10 +71,19 @@
  display: flex;
  flex-direction: column;
  align-items: center;
- font-size: 15px;
+ font-size: 12px;
  img {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  @media only screen and (min-width: 992px) {
+   width: 3rem;
+   height: 3rem;
+  }
+ }
+ @media only screen and (min-width: 768px) {
+ }
+ @media only screen and (min-width: 992px) {
+  font-size: 15px;
  }
 }
 </style>

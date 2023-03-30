@@ -27,13 +27,15 @@ onMounted(() => {
      <Icon name="mdi:linkedin" class="icon" />
     </a>
     <a href="https://www.instagram.com/_yourpalalex/" class="btn">
-     <Icon name="mdi:instagram" class="icon" />
-    </a>
-    <a href="https://www.instagram.com/_yourpalalex/" class="btn">
      <Icon name="carbon:user-avatar-filled-alt" class="icon" />
     </a>
+    <a href="https://www.instagram.com/_yourpalalex/" class="btn">
+     <Icon name="mdi:instagram" class="icon" />
+    </a>
    </div>
-   <button class="btn" id="profileImage"></button>
+   <button class="btn" id="profileImage">
+    <ProfilePic />
+   </button>
   </div>
  </nav>
  <main class="main-body" id="main-body">
@@ -62,7 +64,6 @@ main {
  height: 13vh;
 }
 div,
-button,
 input[type="submit"],
 input[type="reset"] {
  background: none;
@@ -89,54 +90,63 @@ input[type="reset"] {
  display: flex;
  align-items: center;
  justify-content: center;
- border-width: 1px 0px 0px 1px;
- border-style: solid;
- border-color: rgb(211, 211, 211);
- border-right: solid 1px #bfbfbf;
- border-bottom: solid 1px #bfbfbf;
- box-shadow: 2px 2px 3px rgba(114, 114, 114, 0.9),
-  inset 1px 1px 1px rgba(227, 227, 227, 0.3);
+ //  border-width: 2.5px 0px 0px 2.5px;
+ //  border-style: solid;
+ //  border-color: rgba(211, 211, 211, 0.5);
+ //  border-right: solid 1px #bfbfbf;
+ //  border-bottom: solid 1px #bfbfbf;
+ border-top: 3px solid #dcdcdc;
+ border-right: 3px solid #7b7b7b;
+ border-bottom: 3px solid #7b7b7b;
+ border-left: 3px solid #dcdcdc;
+ box-shadow: 3px 3px 3px rgba(114, 114, 114, 0.5),
+  inset 1px 1px 3px rgba(227, 227, 227, 0.4);
  cursor: pointer;
 
  &:hover {
-  border-color: rgba(230, 230, 230, 0.5);
-  border-right: solid 1px #bfbfbf;
-  border-bottom: solid 1px #bfbfbf;
-  box-shadow: 1px 1px 2px rgba(114, 114, 114, 0.9),
-   inset 0.5px 0.5px 1px rgba(227, 227, 227, 0.5);
+  box-shadow: 1px 1px 3px rgba(114, 114, 114, 0.5),
+   inset 2px 2px 2px rgba(227, 227, 227, 0.5);
+ }
+ .icon {
+  font-size: 2.5rem;
+  color: #5c5c5c;
+
+  &:hover {
+   color: #747474;
+  }
  }
  @media only screen and (min-width: 768px) {
   width: 3rem;
   height: 3rem;
  }
  @media only screen and (min-width: 992px) {
-  height: 3.5rem;
-  width: 3.5rem;
- }
-
- @media only screen and (min-width: 1200px) {
   height: 4rem;
   width: 4rem;
+  .icon {
+   font-size: 3rem;
+  }
  }
- .icon {
-  font-size: 3rem;
-  color: #464646;
-
-  &:hover {
-   color: #606060;
+ @media only screen and (min-width: 1200px) {
+  height: 5rem;
+  width: 5rem;
+  .icon {
+   font-size: 4rem;
   }
  }
 }
 
+#profileImage {
+ filter: blur(1px);
+}
 .navbar {
  height: fit-content;
  z-index: 9999;
  background-color: #c6c6c6;
- border: 2px solid #a8a8a8;
- box-shadow: 4px 4px 5px rgba(105, 105, 105, 0.5);
  width: 100%;
  display: flex;
  flex-direction: column;
+ border-bottom: rgb(155, 155, 155) solid 3px;
+ box-shadow: 5px 5px 5px#464646;
  .content {
   display: flex;
   padding: 0.5rem 1rem;
@@ -144,9 +154,10 @@ input[type="reset"] {
  }
  .linkbar {
   background: #bfbfbf;
-  border: 1px solid rgb(149, 149, 149);
+  border-bottom: 1px solid rgb(149, 149, 149);
   width: inherit;
   height: 1.5rem;
+  box-shadow: inset 3px 3px 3px rgba(227, 227, 227, 0.5);
  }
  .btn-group {
   display: flex;

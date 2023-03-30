@@ -2,10 +2,14 @@
 const props = defineProps(["title"]);
 const onHold = ref(false);
 
+//temp
+const styleObject = reactive({
+ color: "red",
+});
+
 let topBrkPt = useTopBrkPt();
 let rightBrkPt = useRightBrkPt();
 let bottomBrkPt = useBottomBrkPt();
-
 function dragElement(elmnt) {
  var pos1 = 0,
   pos2 = 0,
@@ -67,15 +71,12 @@ function dragElement(elmnt) {
 onMounted(() => {
  const doubleTap = document.getElementById(props.title);
  dragElement(doubleTap);
- doubleTap.addEventListener("dblclick", (e) => {
-  console.log("Hello World");
- });
 });
 </script>
 
 <template>
  <div :id="props.title" class="draggable-element">
-  <div class="icon-container" :class="onHold ? 'dotted-border' : ''">
+  <div class="icon-container" :class="onHold ? 'dotted-border z-over ' : ''">
    <div :id="props.title + 'header'"><slot /></div>
   </div>
  </div>
@@ -110,7 +111,6 @@ onMounted(() => {
  height: fit-content;
  padding: 0.25rem;
  position: absolute;
- z-index: 9;
  text-align: center;
  display: flex;
  flex-direction: column;
@@ -125,5 +125,9 @@ onMounted(() => {
  display: flex;
  flex-direction: column;
  align-items: center;
+}
+
+.z-over {
+ z-index: 100;
 }
 </style>

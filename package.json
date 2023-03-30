@@ -15,7 +15,6 @@
     "sass-loader": "^13.2.1"
   },
   "dependencies": {
-    "draggable": "^4.2.0",
     "vue-simple-icons": "^7.5.0"
   }
 }
