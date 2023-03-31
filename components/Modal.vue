@@ -77,25 +77,25 @@ body {
  transform: translate(-50%, -50%);
  border: 1px solid #888;
  width: 100%;
- height: 60%;
+ height: 100%;
  box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
  .img-group {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  div {
+   display: flex;
+   flex-direction: column;
+   span {
+    padding: 0.5rem;
+    text-align: center;
+   }
+  }
   img {
-   position: absolute;
-   width: 8rem;
-  }
-  #resume {
-   z-index: 1;
-   top: 40%;
-   left: 35%;
-  }
-  #transcript {
-   top: 33%;
-   bottom: 33%;
-  }
-  #foodhandlers {
-   bottom: 20%;
-   right: 10%;
+   filter: blur(2px);
+   width: 12rem;
   }
  }
 
@@ -140,7 +140,7 @@ body {
  }
  @media only screen and (min-width: 992px) {
   width: 75%;
-  height: 50%;
+  height: 70%;
  }
 
  @media only screen and (min-width: 1200px) {

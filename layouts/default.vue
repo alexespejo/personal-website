@@ -38,9 +38,6 @@ onMounted(() => {
      <Icon name="mdi:instagram" class="icon" />
     </a>
    </div>
-   <button id="profileImage" class="btn">
-    <ProfilePic />
-   </button>
   </div>
  </nav>
  <main class="main-body" id="main-body">
