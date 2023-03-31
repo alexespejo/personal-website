@@ -33,7 +33,7 @@ onMounted(() => {
      <Icon name="mdi:instagram" class="icon" />
     </a>
    </div>
-   <button class="btn" id="profileImage">
+   <button id="profileImage" class="btn">
     <ProfilePic />
    </button>
   </div>
@@ -136,7 +136,10 @@ input[type="reset"] {
 }
 
 #profileImage {
- filter: blur(1px);
+ border-top: 3px solid #cccccc;
+ border-right: 3px solid #7b7b7b;
+ border-bottom: 3px solid #7b7b7b;
+ border-left: 3px solid #cccccc;
 }
 .navbar {
  height: fit-content;
@@ -145,7 +148,10 @@ input[type="reset"] {
  width: 100%;
  display: flex;
  flex-direction: column;
- border-bottom: rgb(155, 155, 155) solid 3px;
+ border-top: 3px solid #cccccc;
+ border-right: 3px solid #7b7b7b;
+ border-bottom: 3px solid #7b7b7b;
+ border-left: 3px solid #cccccc;
  box-shadow: 5px 5px 5px#464646;
  .content {
   display: flex;

@@ -1,63 +1,47 @@
 <script setup>
+const props = defineProps(["changing", "id"]);
+const useShow = showModal();
+
+const changeModal = () => {
+ useShow.value = false;
+ //  props.changingModal = false;
+};
+
 onMounted(() => {
  var modal = document.getElementById("myModal");
-
- // Get the button that opens the modal
- var btn = document.getElementById("myBtn");
-
- // Get the <span> element that closes the modal
- var closeBtn = document.getElementsByClassName("close")[0];
- var minimizeBtn = document.getElementsByClassName("close")[1];
-
- // When the user clicks the button, open the modal
- btn.onclick = function () {
-  modal.style.display = "block";
- };
-
- // When the user clicks on <closeBtn> (x), close the modal
- // When the user clicks on <closeBtn> (x), close the modal
- closeBtn.onclick = function () {
-  modal.style.display = "none";
- };
- minimizeBtn.onclick = function () {
-  modal.style.display = "none";
- };
-
- // When the user clicks anywhere outside of the modal, close it
  window.onclick = function (event) {
   if (event.target == modal) {
-   modal.style.display = "none";
+   changeModal();
   }
  };
 });
 </script>
 
 <template>
- <button id="myBtn">Open Modal</button>
-
- <!-- The Modal -->
- <div id="myModal" class="modal retro-border">
+ <div :id="props.id" class="modal retro-border">
   <div class="modal-content">
    <div class="modal-control retro-border">
     <div class="decorator-buttons">
-     <span>File</span>
-     <span>File</span>
-     <span>File</span>
+     <span class="decorator-btn"><span class="underline">F</span>ile</span>
+     <span class="decorator-btn">E<span class="underline">d</span>it</span>
+     <span class="decorator-btn">V<span class="underline">i</span>ew </span>
     </div>
     <div class="modal-btn-group">
-     <button class="modal-control-btn close">
+     <button class="modal-control-btn close" @click="changeModal">
       <Icon name="mdi:window-minimize" />
      </button>
      <button class="modal-control-btn" disabled>
       <Icon name="mdi:window-maximize" />
      </button>
-     <button class="modal-control-btn close">
+     <button class="modal-control-btn close" @click="changeModal">
       <Icon name="mdi:window-close" />
      </button>
     </div>
    </div>
    <div class="modal-text">
-    <p>Some text in the Modal..</p>
+    {{ props.changing }}
+    {{ useShow }}
+    <slot />
    </div>
   </div>
  </div>
@@ -94,17 +78,44 @@ body {
  border: 1px solid #888;
  width: 100%;
  height: 50%;
+ box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
+ .img-group {
+  img {
+   position: absolute;
+   width: 8rem;
+  }
+  #resume {
+   z-index: 1;
+   top: 50%;
+   left: 35%;
+  }
+  #transcript {
+   top: 33%;
+   bottom: 33%;
+  }
+  #foodhandlers {
+   bottom: 20%;
+   right: 10%;
+  }
+ }
 
  .modal-text {
   padding: 1rem;
+  height: 80%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+   display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
  }
  .decorator-buttons {
   display: flex;
-  span {
+  .decorator-btn {
    margin-right: 1px;
-   padding: 0.1rem 0.5rem;
+   padding: 0.3rem 0.5rem;
    border: 2px solid #a7a7a7;
-
+   font-size: 12px;
    &:hover {
     border-top: 2px solid #cccccc;
     border-right: 2px solid #7b7b7b;
@@ -114,11 +125,15 @@ body {
   }
  }
  .modal-control {
+  font-family: monospace;
   background: #a7a7a7;
-  padding: 0.2rem 0.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.1rem;
+ }
+ .underline {
+  text-decoration: underline;
  }
 
  @media only screen and (min-width: 768px) {
