@@ -94,26 +94,21 @@ onMounted(() => {
    :class="modalDisplay(showTechnology && useShow)"
   >
    <div class="tech-modal-content">
-    <div>
-     <Icon name="logos:nuxt" />
+    <div class="tech-stack">
+     <span>Tech Stack</span>
+     <div class="divider"></div>
+     <div>
+      <Icon name="logos:vue" />
+      <Icon name="vscode-icons:file-type-nuxt" />
+      <Icon name="logos:typescript-icon" />
+      <Icon name="vscode-icons:file-type-sass" />
+      <Icon name="logos:w3c" />
+     </div>
      <p>
-      The entire thing was built with the Vue.js 3 JavaScript framework on top
-      of the Nuxt3 Metaframework to handle all of the interactive components
-     </p>
-    </div>
-
-    <div>
-     <Icon name="vscode-icons:file-type-sass" />
-     <p>
-      All of the CSS and styling in this app were handled using vanillas CSS and
-      SASS/SCSS -- yes I am bad at writing vanilla CSS
-     </p>
-    </div>
-    <div>
-     <Icon name="logos:typescript-icon" />
-     <p>
-      Using Nuxt3 technically means I have to use TypeScript but I like to
-      include it to make this list longer ¯\_(ツ)_/¯
+      This single page application (SPA) was built with the Nuxt javscript
+      framework built with TypeScript. I created components from scratch with
+      Vue and SASS/SCSS. Many of the components came directly from the website
+      W3schools
      </p>
     </div>
 
@@ -201,25 +196,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-.tech-list {
- display: flex;
- flex-direction: column;
- flex-wrap: wrap;
- color: #7d7c7c;
- .icon-groups {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  svg {
-   padding: 0.5rem 0;
-  }
- }
- span {
-  margin-top: 2rem;
-  align-self: flex-start;
-  font-size: 1.3rem;
- }
-}
 .divider {
  width: 100%;
  height: 1px;
@@ -314,15 +290,47 @@ a {
   display: flex;
   align-items: center;
 
-  svg {
-   font-size: 5rem;
-   width: 30%;
-  }
   p {
    padding: 0.5rem 2rem;
    width: 50%;
    font-size: 1rem;
   }
+ }
+}
+.tech-list {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+
+ .icon-groups {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  svg {
+   padding: 0.5rem 0;
+   font-size: 5rem;
+   width: 30%;
+  }
+ }
+ span {
+  margin-top: 2rem;
+  align-self: flex-start;
+  font-size: 1.3rem;
+ }
+}
+.tech-stack {
+ font-size: 5rem;
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+ span {
+  margin-top: 2rem;
+  align-self: flex-start;
+  font-size: 1.3rem;
+ }
+ svg {
+  widows: 25%;
+  padding: 0 1rem;
  }
 }
 </style>

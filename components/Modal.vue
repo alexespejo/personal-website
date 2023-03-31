@@ -22,6 +22,7 @@ onMounted(() => {
   <div class="modal-content">
    <div class="modal-control retro-border">
     <div class="decorator-buttons">
+     <img src="https://98.js.org/images/icons/folder-open-16x16.png" alt="" />
      <span class="decorator-btn"><span class="underline">F</span>ile</span>
      <span class="decorator-btn">E<span class="underline">d</span>it</span>
      <span class="decorator-btn">V<span class="underline">i</span>ew </span>
@@ -100,6 +101,8 @@ body {
  }
 
  .modal-text {
+  color: #7d7c7c;
+
   padding: 1rem;
   height: 80%;
   overflow-y: scroll;
@@ -111,6 +114,10 @@ body {
  }
  .decorator-buttons {
   display: flex;
+  align-items: center;
+  img {
+   height: 1rem;
+  }
   .decorator-btn {
    margin-right: 1px;
    padding: 0.3rem 0.5rem;
