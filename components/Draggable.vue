@@ -47,7 +47,7 @@ function dragElement(elmnt) {
   // set the element's new position:
   if (
    !(
-    pos4 < topBrkPt.value + 30 ||
+    pos4 < topBrkPt.value + 50 ||
     pos4 >= bottomBrkPt.value - 50 ||
     pos3 <= 44 ||
     pos3 >= rightBrkPt.value - 50
@@ -55,6 +55,14 @@ function dragElement(elmnt) {
   ) {
    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+  } else if (pos4 <= topBrkPt.value + 50) {
+   elmnt.style.top = elmnt.style.top = elmnt.offsetTop + 10 + "px";
+  } else if (pos4 >= bottomBrkPt.value - 50) {
+   elmnt.style.top = elmnt.style.top = elmnt.offsetTop - 10 + "px";
+  } else if (pos3 <= 44) {
+   elmnt.style.left = elmnt.offsetLeft + 10 + "px";
+  } else if (pos3 >= rightBrkPt.value - 50) {
+   elmnt.style.left = elmnt.offsetLeft - 10 + "px";
   }
  }
 

@@ -1,1 +1,1 @@
-export const showModal = () => useState<boolean>("modal", () => false);
+export const showModal = () => useState<boolean>("modal", () => true);

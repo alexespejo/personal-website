@@ -6,15 +6,6 @@ const changeModal = () => {
  useShow.value = false;
  //  props.changingModal = false;
 };
-
-onMounted(() => {
- var modal = document.getElementById("myModal");
- window.onclick = function (event) {
-  if (event.target == modal) {
-   changeModal();
-  }
- };
-});
 </script>
 
 <template>

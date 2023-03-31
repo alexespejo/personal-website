@@ -10,6 +10,8 @@ const displays = reactive({
  block: "block",
 });
 
+const test = ref(true);
+
 //documenets reference
 const showDocuments = ref(false);
 const changeShowDocuments = () => {
@@ -56,6 +58,9 @@ onMounted(() => {
 </script>
 <template>
  <main>
+  <Modal :changing="test" id="testingID" :class="modalDisplay(test && useShow)">
+   Test
+  </Modal>
   <div id="computer-icon">
    <img
     src="https://98.js.org/images/icons/my-computer-32x32.png"
@@ -107,8 +112,10 @@ onMounted(() => {
      <p>
       This single page application (SPA) was built with the Nuxt javscript
       framework built with TypeScript. I created components from scratch with
-      Vue and SASS/SCSS. Many of the components came directly from the website
-      W3schools
+      Vue and SASS/SCSS. Many of the components used in this app can be found on
+      <a href="https://www.w3schools.com/howto/default.asp"
+       >W3Schools How To
+      </a>
      </p>
     </div>
 
