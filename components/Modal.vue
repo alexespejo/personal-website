@@ -39,8 +39,6 @@ onMounted(() => {
     </div>
    </div>
    <div class="modal-text">
-    {{ props.changing }}
-    {{ useShow }}
     <slot />
    </div>
   </div>
@@ -54,6 +52,7 @@ body {
 
 /* The Modal (background) */
 .modal {
+ color: black;
  display: none; /* Hidden by default */
  position: fixed; /* Stay in place */
  z-index: 1; /* Sit on top */
@@ -77,7 +76,7 @@ body {
  right: 0;
  border: 1px solid #888;
  width: 100%;
- height: 50%;
+ height: 60%;
  box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
  .img-group {
   img {
@@ -86,7 +85,7 @@ body {
   }
   #resume {
    z-index: 1;
-   top: 50%;
+   top: 40%;
    left: 35%;
   }
   #transcript {
@@ -140,6 +139,7 @@ body {
  }
  @media only screen and (min-width: 992px) {
   width: 75%;
+  height: 50%;
  }
 
  @media only screen and (min-width: 1200px) {

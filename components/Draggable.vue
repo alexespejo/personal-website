@@ -55,9 +55,6 @@ function dragElement(elmnt) {
   ) {
    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-  } else {
-   elmnt.style.top = elmnt.offsetTop + pos2 + "px";
-   elmnt.style.left = elmnt.offsetLeft + pos1 + "px";
   }
  }
 
@@ -116,7 +113,7 @@ onMounted(() => {
  flex-direction: column;
 }
 .dotted-border {
- border: grey 2.5px;
+ border: rgb(212, 212, 212) 2.5px;
  border-style: dotted;
 }
 .icon-container {

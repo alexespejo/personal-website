@@ -14,7 +14,12 @@ onMounted(() => {
 
 <template>
  <nav class="navbar" id="navbar">
-  <div class="linkbar"></div>
+  <div class="linkbar">
+   <span class="retro-border">alexander espejo</span>
+   <span class="retro-border">inspiration?</span>
+   <span class="retro-border">issues?</span>
+   <span class="retro-border">games?</span>
+  </div>
   <div class="content">
    <div class="btn-group">
     <a
@@ -41,7 +46,6 @@ onMounted(() => {
  <main class="main-body" id="main-body">
   <slot />
  </main>
- <footer class="footer">Footer</footer>
 </template>
 
 <style lang="scss">
@@ -58,11 +62,9 @@ nav {
  height: 12vh;
 }
 main {
- height: 75vh;
+ height: 88vh;
 }
-.footer {
- height: 13vh;
-}
+
 div,
 input[type="submit"],
 input[type="reset"] {
@@ -79,7 +81,7 @@ input[type="reset"] {
  flex-direction: column;
 }
 .main-body {
- background: #e2e2e2;
+ background: #00888a;
  padding: 0.5rem;
 }
 
@@ -120,17 +122,17 @@ input[type="reset"] {
   height: 3rem;
  }
  @media only screen and (min-width: 992px) {
+  height: 3rem;
+  width: 3rem;
+  .icon {
+   font-size: 2.5rem;
+  }
+ }
+ @media only screen and (min-width: 1200px) {
   height: 4rem;
   width: 4rem;
   .icon {
    font-size: 3rem;
-  }
- }
- @media only screen and (min-width: 1200px) {
-  height: 5rem;
-  width: 5rem;
-  .icon {
-   font-size: 4rem;
   }
  }
 }
@@ -163,14 +165,27 @@ input[type="reset"] {
   border-bottom: 1px solid rgb(149, 149, 149);
   width: inherit;
   height: 1.5rem;
-  box-shadow: inset 3px 3px 3px rgba(227, 227, 227, 0.5);
+  display: flex;
  }
  .btn-group {
   display: flex;
   gap: 0.5rem;
  }
 }
-.footer {
- background: #bfbfbf;
+
+.retro-border {
+ font-family: monospace;
+ padding: 0.1rem 0.5rem;
+ font-size: 0.75rem;
+ border: 2px solid #bfbfbf;
+ &::first-letter {
+  text-decoration: underline;
+ }
+ &:hover {
+  border-top: 2px solid #dedede;
+  border-right: 2px solid #7b7b7b;
+  border-bottom: 2px solid #7b7b7b;
+  border-left: 2px solid #dedede;
+ }
 }
 </style>

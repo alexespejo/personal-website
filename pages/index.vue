@@ -60,18 +60,26 @@ onMounted(() => {
   </Modal>
 
   <Draggable title="folder1" class="drag-pos-1">
-   <Icon name="material-symbols:folder" class="dragging-icon icon-shadow" />
-   Documents
+   <img
+    src="https://98.js.org/images/icons/folder-32x32.png"
+    class="dragging-icon"
+   />
+   <span class="dragging-text">technology</span>
   </Draggable>
 
   <Draggable title="folder2" class="drag-pos-2">
    <ProfilePic class="dragging-icon" />
   </Draggable>
   <Draggable title="folder3" class="drag-pos-3">
-   <Icon name="material-symbols:folder-shared" class="dragging-icon"
+   <img
+    src="https://98.js.org/images/icons/folder-32x32.png"
+    class="dragging-icon"
   /></Draggable>
   <Draggable title="documents-folder" class="drag-pos-4">
-   <Icon name="material-symbols:snippet-folder" class="dragging-icon" />
+   <img
+    src="https://98.js.org/images/icons/folder-32x32.png"
+    class="dragging-icon"
+   />
    <span class="dragging-text">documents</span>
   </Draggable>
  </main>
@@ -89,20 +97,20 @@ a {
  display: none;
 }
 .dragging-icon {
- width: 5rem;
- height: 5rem;
+ width: 4rem;
+ height: 4rem;
  font-size: 3rem;
  @media only screen and (min-width: 768px) {
   font-size: 4rem;
  }
  @media only screen and (min-width: 992px) {
-  font-size: 5rem;
+  font-size: 4rem;
  }
 }
 .dragging-text {
  font-family: monospace;
  font-size: 15px;
- color: black;
+ color: rgb(255, 255, 255);
 }
 .dragging-image {
  width: 5rem;
@@ -114,24 +122,21 @@ a {
 .drag-pos-1 {
  top: 55%;
  right: 40%;
- color: navy;
 }
 .drag-pos-3 {
  top: 25%;
  right: 32%;
- color: #49a1ff;
 }
 .drag-pos-2 {
  top: 30%;
  left: 25%;
- color: #7b7b7b;
 }
 .drag-pos-4 {
  bottom: 30%;
  left: 15%;
- color: rgb(161, 161, 161);
 }
 #computer-icon {
+ color: whitesmoke;
  position: fixed;
  padding: 0.5rem;
  width: fit-content;
