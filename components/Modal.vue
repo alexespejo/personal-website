@@ -72,8 +72,9 @@ body {
  position: absolute;
  background-color: #d4d4d4;
  margin: auto;
- left: 0;
- right: 0;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
  border: 1px solid #888;
  width: 100%;
  height: 60%;
