@@ -14,11 +14,27 @@ onMounted(() => {
 
 <template>
  <nav class="navbar" id="navbar">
+  <div
+   style="
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    border: #f06e72 1px solid;
+    width: fit-content;
+    font-size: 0.5rem;
+    background: #f7b6b8;
+    border-radius: 1rem;
+    padding: 0.2rem 0.5rem;
+    color: #f06e72;
+   "
+  >
+   Under Construction
+  </div>
   <div class="linkbar">
-   <span class="retro-border">alexander espejo</span>
-   <span class="retro-border">inspiration?</span>
-   <span class="retro-border">issues?</span>
-   <span class="retro-border">games?</span>
+   <a class="retro-border">alexander espejo</a>
+   <a class="retro-border">inspiration?</a>
+   <a class="retro-border">issues?</a>
+   <a class="retro-border">games?</a>
   </div>
   <div class="content">
    <div class="btn-group">
@@ -46,6 +62,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900");
 body {
  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -110,8 +127,8 @@ main {
   }
  }
  @media only screen and (min-width: 1200px) {
-  height: 4rem;
-  width: 4rem;
+  height: 3.5rem;
+  width: 3.5rem;
   .icon {
    font-size: 3rem;
   }
@@ -147,6 +164,11 @@ main {
   width: inherit;
   height: 1.5rem;
   display: flex;
+  a {
+   padding: 0 0.5rem;
+   display: flex;
+   align-items: center;
+  }
  }
  .btn-group {
   display: flex;
@@ -155,13 +177,11 @@ main {
 }
 
 .retro-border {
- font-family: monospace;
- padding: 0.1rem 0.5rem;
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
  font-size: 0.75rem;
  border: 2px solid #bfbfbf;
- &::first-letter {
-  text-decoration: underline;
- }
+
  &:hover {
   border-top: 2px solid #dedede;
   border-right: 2px solid #7b7b7b;

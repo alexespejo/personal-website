@@ -58,15 +58,13 @@ body {
 /* Modal Content */
 
 .modal-content {
- //  position: absolute;
+ position: relative;
  margin: auto;
  background-color: #d4d4d4;
- //  top: 50%;
- //  left: 50%;
- //  transform: translate(-50%, -50%);
  border: 1px solid #888;
  width: 100%;
  height: 80%;
+ overflow-y: scroll;
  box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
  .img-group {
   display: flex;
@@ -90,15 +88,17 @@ body {
 
  .modal-text {
   color: #7d7c7c;
-  height: 80%;
+  height: inherit;
   font-size: 12px;
   padding: 1rem;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-   width: 5px;
+  padding-bottom: 2rem;
+
+  ::-webkit-scrollbar {
+   width: 2px;
   }
-  -ms-overflow-style: 2px; /* IE and Edge */
-  scrollbar-width: 2px; /* Firefox */
+  //   @media only screen and (min-width: 992px) {
+  //    height: 70%;
+  //   }
  }
  .decorator-buttons {
   display: flex;
@@ -121,6 +121,9 @@ body {
   }
  }
  .modal-control {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   font-family: monospace;
   background: #a7a7a7;
   padding: 0.1rem 0.4rem;

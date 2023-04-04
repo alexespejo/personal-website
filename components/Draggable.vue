@@ -112,6 +112,7 @@ onMounted(() => {
 /* Extra small devices (phones, 600px and down) */
 
 .draggable-element {
+ cursor: pointer;
  width: fit-content;
  height: fit-content;
  padding: 0.25rem;
