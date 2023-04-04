@@ -10,7 +10,7 @@ const displays = reactive({
  block: "block",
 });
 
-const test = ref(true);
+const welcomeModal = ref(true);
 
 //documenets reference
 const showDocuments = ref(false);
@@ -55,14 +55,51 @@ onMounted(() => {
 onUpdated(() => {
  if (!useShow.value) {
   turnOffModal();
+  welcomeModal.value = false;
  }
 });
 </script>
 <template>
  <main>
-  <Modal :changing="test" id="testingID" :class="modalDisplay(test && useShow)">
-   <span class="rainbow-shadow">Welcome </span>
-   <span class="animated-shadow"> Hi I'm Alex :&#40; </span>
+  <Modal id="welcomeID" :class="modalDisplay(welcomeModal && useShow)">
+   <div class="welcome-content">
+    <span class="rainbow-shadow welcome-text">Welcome!!</span>
+
+    <p>
+     HIYA!!👋 😁 welcome to my website!!! 💯💯🔥🔥🔥🥳🇵🇭🤙
+     <br />
+     <span>
+      My name is Alexander Espejo, I'm a first year computer science major at
+      <a href="https://orangecoastcollege.edu/">Orange Coast College</a> 🎓 I'm
+      a self-taught frontend developer 👨‍💻 and aspring software engineer ⚙️
+      (check out my
+      <a
+       href="https://github.com/alexespejo?tab=overview&from=2022-03-01&to=2022-03-11"
+       >Github</a
+      >
+      if you get the chance 🤩)
+     </span>
+
+     <img
+      src="../assets/realProfilePic.png"
+      alt="profile picture"
+      id="profilePicture"
+     />
+
+     <br />
+     I love to develop software 🖥️ and build apps 📱 that can make a positive
+     impact on the world 🌍. I'm always eager to learn and practice new skills
+     🏋️‍♂️ and technologies, and I enjoy collaborating with other passionate coders
+     🤝. I'm excited to share my projects and ideas with you! 🫶
+     <br />
+    </p>
+    <img
+     src="https://i0.wp.com/www.printmag.com/wp-content/uploads/2021/02/4cbe8d_f1ed2800a49649848102c68fc5a66e53mv2.gif?fit=476%2C280&ssl=1"
+     alt=""
+    />
+    <br />
+    <span>I hope my irony landed otherwise this is really cringe -.-''</span>
+   </div>
   </Modal>
   <div id="computer-icon">
    <img
@@ -96,11 +133,7 @@ onUpdated(() => {
     </div>
    </div>
   </Modal>
-  <Modal
-   :changing="showTechnology"
-   id="technologyModal"
-   :class="modalDisplay(showTechnology && useShow)"
-  >
+  <Modal id="technologyModal" :class="modalDisplay(showTechnology && useShow)">
    <div class="tech-modal-content">
     <div class="tech-stack">
      <span>Tech Stack</span>
@@ -110,8 +143,18 @@ onUpdated(() => {
       <Icon name="vscode-icons:file-type-nuxt" />
       <Icon name="logos:typescript-icon" />
       <Icon name="vscode-icons:file-type-sass" />
-      <Icon name="logos:w3c" />
      </div>
+     <p>
+      This is the tech stack of my personal SPA (single-page application). I
+      used Nuxt3, TypeScript, and SASS/SCSS to create a fast, modern, and
+      beautiful web app. Nuxt3 is a framework that combines Vue3, Vite, and
+      Nitro to provide a full-stack solution for building web apps. TypeScript
+      is a superset of JavaScript that adds static typing and other features to
+      make the code more reliable and maintainable. SASS/SCSS is a preprocessor
+      that extends CSS with variables, mixins, nesting, and more to make the
+      styling more expressive and modular. Together, these technologies allow me
+      to create a SPA that is easy to develop, test, and deploy.
+     </p>
     </div>
 
     <div class="tech-list">
@@ -198,6 +241,36 @@ onUpdated(() => {
 </template>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900");
+.welcome-content {
+ display: flex;
+ position: relative;
+ flex-direction: column;
+
+ p {
+  font-size: 1rem;
+  line-height: 2rem;
+  a {
+   color: blue;
+  }
+ }
+ img {
+  align-self: center;
+  width: 50%;
+ }
+ #profilePicture {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  object-fit: cover;
+  width: 10%;
+ }
+ .welcome-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  align-self: center;
+ }
+}
 .animated-shadow {
  $color1: #ff0000;
  $color2: #00ff00;
@@ -290,7 +363,7 @@ a {
  cursor: pointer;
 }
 .block {
- display: block;
+ display: flex;
 }
 .none {
  display: none;
@@ -375,6 +448,7 @@ a {
   p {
    padding: 0.5rem 2rem;
    width: 75%;
+   line-height: 1.5rem;
    font-size: 1rem;
    @media only screen and (min-width: 768px) {
    }
@@ -384,7 +458,7 @@ a {
    }
 
    @media only screen and (min-width: 1200px) {
-    width: 50%;
+    width: 80%;
    }
   }
  }
@@ -422,6 +496,7 @@ a {
  display: flex;
  flex-direction: column;
  width: 100%;
+
  span {
   margin-top: 2rem;
   align-self: flex-start;

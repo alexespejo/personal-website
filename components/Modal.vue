@@ -1,14 +1,13 @@
 <script setup>
-const props = defineProps(["changing", "id"]);
+const props = defineProps(["id"]);
 const useShow = showModal();
 const changeModal = () => {
  useShow.value = false;
- props.changing = false;
 };
 </script>
 
 <template>
- <div :id="props.id" class="modal retro-border">
+ <div :id="props.id" class="modal">
   <div class="modal-content">
    <div class="modal-control">
     <div class="decorator-buttons">
@@ -44,15 +43,14 @@ body {
 /* The Modal (background) */
 .modal {
  color: black;
- display: none; /* Hidden by default */
  position: fixed; /* Stay in place */
  z-index: 1; /* Sit on top */
- padding: 1rem;
+ //  padding: 1rem;
  left: 0;
  top: 0;
  width: 100%; /* Full width */
  height: 100%; /* Full height */
- overflow: auto; /* Enable scroll if needed */
+ //  overflow: auto; /* Enable scroll if needed */
  background-color: rgb(0, 0, 0); /* Fallback color */
  background-color: rgba(190, 190, 190, 0.4); /* Black w/ opacity */
 }
@@ -60,14 +58,14 @@ body {
 /* Modal Content */
 
 .modal-content {
- position: absolute;
- background-color: #d4d4d4;
+ //  position: absolute;
  margin: auto;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
+ background-color: #d4d4d4;
+ //  top: 50%;
+ //  left: 50%;
+ //  transform: translate(-50%, -50%);
  border: 1px solid #888;
- width: 80%;
+ width: 100%;
  height: 80%;
  box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
  .img-group {

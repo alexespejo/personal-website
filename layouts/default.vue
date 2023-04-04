@@ -62,17 +62,6 @@ main {
  height: 88vh;
 }
 
-div,
-input[type="submit"],
-input[type="reset"] {
- background: none;
- color: inherit;
- border: none;
- padding: 0;
- font: inherit;
- cursor: pointer;
- outline: inherit;
-}
 .layout-body {
  display: flex;
  flex-direction: column;
