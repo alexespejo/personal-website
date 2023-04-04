@@ -11,7 +11,7 @@ const changeModal = () => {
   <div class="modal-content">
    <div class="modal-control">
     <div class="decorator-buttons">
-     <img src="https://98.js.org/images/icons/folder-open-16x16.png" alt="" />
+     <img src="../assets/directory_open_cool-1.png" alt="" />
      <span class="decorator-btn"><span class="underline">F</span>ile</span>
      <span class="decorator-btn">E<span class="underline">d</span>it</span>
      <span class="decorator-btn">V<span class="underline">i</span>ew </span>

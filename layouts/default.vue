@@ -5,7 +5,6 @@ let bottomBrkPt = useBottomBrkPt();
 onMounted(() => {
  const ele = document.getElementById("main-body");
  var boxTop = ele.getBoundingClientRect();
- console.log(boxTop.right);
  topBrkPt.value = boxTop.top;
  rightBrkPt.value = boxTop.right;
  bottomBrkPt.value = boxTop.bottom;
