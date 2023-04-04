@@ -103,7 +103,7 @@ onUpdated(() => {
   </Modal>
   <div id="computer-icon">
    <img
-    src="https://98.js.org/images/icons/my-computer-32x32.png"
+    src="../assets/computer_explorer-3.png"
     alt="my computer"
     id="computer-image"
    />
@@ -215,10 +215,7 @@ onUpdated(() => {
   </Modal>
 
   <Draggable title="tech-folder" class="drag-pos-1">
-   <img
-    src="https://98.js.org/images/icons/folder-32x32.png"
-    class="dragging-icon"
-   />
+   <img src="../assets/directory_closed-3.png" class="dragging-icon" />
    <span class="dragging-text">technology</span>
   </Draggable>
 
@@ -226,15 +223,10 @@ onUpdated(() => {
    <ProfilePic class="dragging-icon" />
   </Draggable>
   <Draggable title="folder3" class="drag-pos-3">
-   <img
-    src="https://98.js.org/images/icons/folder-32x32.png"
-    class="dragging-icon"
+   <img src="../assets/directory_closed-3.png" class="dragging-icon"
   /></Draggable>
   <Draggable title="documents-folder" class="drag-pos-4">
-   <img
-    src="https://98.js.org/images/icons/folder-32x32.png"
-    class="dragging-icon"
-   />
+   <img src="../assets/directory_closed-3.png" class="dragging-icon" />
    <span class="dragging-text">documents</span>
   </Draggable>
  </main>
