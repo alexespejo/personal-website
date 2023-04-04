@@ -89,11 +89,6 @@ input[type="reset"] {
  display: flex;
  align-items: center;
  justify-content: center;
- //  border-width: 2.5px 0px 0px 2.5px;
- //  border-style: solid;
- //  border-color: rgba(211, 211, 211, 0.5);
- //  border-right: solid 1px #bfbfbf;
- //  border-bottom: solid 1px #bfbfbf;
  border-top: 3px solid #dcdcdc;
  border-right: 3px solid #7b7b7b;
  border-bottom: 3px solid #7b7b7b;
@@ -144,7 +139,6 @@ input[type="reset"] {
  height: fit-content;
  z-index: 9999;
  background-color: #c6c6c6;
- width: 100%;
  display: flex;
  flex-direction: column;
  border-top: 3px solid #cccccc;
@@ -160,6 +154,7 @@ input[type="reset"] {
  .linkbar {
   background: #bfbfbf;
   border-bottom: 1px solid rgb(149, 149, 149);
+  padding: 0.1rem 0.1rem;
   width: inherit;
   height: 1.5rem;
   display: flex;

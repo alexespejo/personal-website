@@ -1,17 +1,16 @@
 <script setup>
 const props = defineProps(["changing", "id"]);
 const useShow = showModal();
-
 const changeModal = () => {
  useShow.value = false;
- //  props.changingModal = false;
+ props.changing = false;
 };
 </script>
 
 <template>
  <div :id="props.id" class="modal retro-border">
   <div class="modal-content">
-   <div class="modal-control retro-border">
+   <div class="modal-control">
     <div class="decorator-buttons">
      <img src="https://98.js.org/images/icons/folder-open-16x16.png" alt="" />
      <span class="decorator-btn"><span class="underline">F</span>ile</span>
@@ -48,7 +47,7 @@ body {
  display: none; /* Hidden by default */
  position: fixed; /* Stay in place */
  z-index: 1; /* Sit on top */
- padding-top: 100px; /* Location of the box */
+ padding: 1rem;
  left: 0;
  top: 0;
  width: 100%; /* Full width */
@@ -68,8 +67,8 @@ body {
  left: 50%;
  transform: translate(-50%, -50%);
  border: 1px solid #888;
- width: 100%;
- height: 100%;
+ width: 80%;
+ height: 80%;
  box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
  .img-group {
   display: flex;
@@ -81,31 +80,32 @@ body {
    display: flex;
    flex-direction: column;
    span {
-    padding: 0.5rem;
+    // padding: 0.5rem;
     text-align: center;
    }
   }
   img {
-   filter: blur(2px);
+   filter: blur(1px);
    width: 12rem;
   }
  }
 
  .modal-text {
   color: #7d7c7c;
-
-  padding: 1rem;
   height: 80%;
+  font-size: 12px;
+  padding: 1rem;
   overflow-y: scroll;
   &::-webkit-scrollbar {
-   display: none;
+   width: 5px;
   }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: 2px; /* IE and Edge */
+  scrollbar-width: 2px; /* Firefox */
  }
  .decorator-buttons {
   display: flex;
   align-items: center;
+
   img {
    height: 1rem;
   }
@@ -125,10 +125,14 @@ body {
  .modal-control {
   font-family: monospace;
   background: #a7a7a7;
+  padding: 0.1rem 0.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.1rem;
+  border-top: 2px solid #dedede;
+  border-right: 2px solid #7b7b7b;
+  border-bottom: 2px solid #7b7b7b;
+  border-left: 2px solid #dedede;
  }
  .underline {
   text-decoration: underline;
@@ -145,9 +149,16 @@ body {
   width: 50%;
  }
 }
+.modal-btn-group {
+ display: flex;
+}
 button {
  cursor: pointer;
  width: fit-content;
+ color: black;
+ display: flex;
+ justify-content: center;
+ align-items: center;
  height: fit-content;
  margin-left: 0.2rem;
  background: rgb(223, 223, 223);

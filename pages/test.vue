@@ -45,6 +45,9 @@ onMounted(() => {
   }
  };
 });
+onUpdated(() => {
+ alert("update");
+});
 </script>
 <template>
  <Modal

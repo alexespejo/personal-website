@@ -19,18 +19,16 @@ const changeShowDocuments = () => {
  showDocuments.value = useShow.value;
  return;
 };
-const changeDocumentsModal = () => {
- useShow.value = false;
- showDocuments.value = false;
-};
 const showTechnology = ref(false);
 const changeshowTechnology = () => {
  useShow.value = !useShow.value;
  showTechnology.value = useShow.value;
  return;
 };
-const changeTechnologyModal = () => {
+
+const turnOffModal = () => {
  useShow.value = false;
+ showDocuments.value = false;
  showTechnology.value = false;
 };
 
@@ -49,17 +47,22 @@ onMounted(() => {
  window.onclick = function (event) {
   switch (event.target) {
    case docuModal:
-    changeDocumentsModal();
    case techModal:
-    changeTechnologyModal();
+    turnOffModal();
   }
  };
+});
+onUpdated(() => {
+ if (!useShow.value) {
+  turnOffModal();
+ }
 });
 </script>
 <template>
  <main>
   <Modal :changing="test" id="testingID" :class="modalDisplay(test && useShow)">
-   Test
+   <span class="rainbow-shadow">Welcome </span>
+   <span class="animated-shadow"> Hi I'm Alex :&#40; </span>
   </Modal>
   <div id="computer-icon">
    <img
@@ -109,18 +112,10 @@ onMounted(() => {
       <Icon name="vscode-icons:file-type-sass" />
       <Icon name="logos:w3c" />
      </div>
-     <p>
-      This single page application (SPA) was built with the Nuxt javscript
-      framework built with TypeScript. I created components from scratch with
-      Vue and SASS/SCSS. Many of the components used in this app can be found on
-      <a href="https://www.w3schools.com/howto/default.asp"
-       >W3Schools How To
-      </a>
-     </p>
     </div>
 
     <div class="tech-list">
-     <span>Familiar Technologies</span>
+     <span>Technologies I'm Familiar With</span>
      <div class="divider"></div>
      <div class="icon-groups">
       <Icon name="mdi:language-html5" />
@@ -146,7 +141,7 @@ onMounted(() => {
       <Icon name="mdi:language-java" />
       <Icon name="bxl:c-plus-plus" />
      </div>
-     <span>Frequent Tools</span>
+     <span>The tools I use in most projects</span>
      <div class="divider"></div>
      <div class="icon-groups">
       <Icon name="akar-icons:vscode-fill" />
@@ -203,6 +198,86 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+.animated-shadow {
+ $color1: #ff0000;
+ $color2: #00ff00;
+ $color3: #0000ff;
+
+ @keyframes animated-text-shadow {
+  0% {
+   text-shadow: 0 0 10px $color1;
+  }
+  33% {
+   text-shadow: 0 0 10px $color2;
+  }
+  66% {
+   text-shadow: 0 0 10px $color3;
+  }
+ }
+
+ .animated-text-shadow {
+  animation: animated-text-shadow 2s infinite;
+ }
+}
+.rainbow-shadow {
+ font-size: 42px;
+ font-family: Arial Black, Gadget, sans-serif;
+
+ background-image: -webkit-linear-gradient(
+  left,
+  #f00,
+  #ff2b00,
+  #f50,
+  #ff8000,
+  #fa0,
+  #ffd500,
+  #ff0,
+  #d4ff00,
+  #af0,
+  #80ff00,
+  #5f0,
+  #2bff00,
+  #0f0,
+  #00ff2a,
+  #0f5,
+  #00ff80,
+  #0fa,
+  #00ffd5,
+  #0ff,
+  #00d5ff,
+  #0af,
+  #0080ff,
+  #05f,
+  #002aff,
+  #00f,
+  #2b00ff,
+  #50f,
+  #8000ff,
+  #a0f,
+  #d400ff,
+  #f0f,
+  #ff00d4,
+  #f0a,
+  #ff0080,
+  #f05,
+  #ff002b,
+  #f00
+ );
+ -webkit-animation: animatedBackground_a 5s linear infinite alternate;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: #0000;
+ background-clip: text;
+}
+
+@keyframes animatedBackground_a {
+ 0% {
+  background-position: 0 0;
+ }
+ 100% {
+  background-position: -500px 0;
+ }
+}
+
 .divider {
  width: 100%;
  height: 1px;
@@ -299,8 +374,18 @@ a {
 
   p {
    padding: 0.5rem 2rem;
-   width: 50%;
+   width: 75%;
    font-size: 1rem;
+   @media only screen and (min-width: 768px) {
+   }
+   @media only screen and (min-width: 992px) {
+    width: 75%;
+    height: 70%;
+   }
+
+   @media only screen and (min-width: 1200px) {
+    width: 50%;
+   }
   }
  }
 }
@@ -315,14 +400,21 @@ a {
   flex-wrap: wrap;
   svg {
    padding: 0.5rem 0;
-   font-size: 5rem;
-   width: 30%;
+
+   width: 33%;
+   font-size: 3rem;
+   @media only screen and (min-width: 992px) {
+    font-size: 5rem;
+   }
   }
  }
  span {
   margin-top: 2rem;
   align-self: flex-start;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  @media only screen and (min-width: 992px) {
+   font-size: 1.3rem;
+  }
  }
 }
 .tech-stack {
@@ -333,11 +425,15 @@ a {
  span {
   margin-top: 2rem;
   align-self: flex-start;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  @media only screen and (min-width: 992px) {
+   font-size: 1.3rem;
+  }
  }
  svg {
-  widows: 25%;
-  padding: 0 1rem;
+  width: 20%;
+  padding: 0 0.5rem;
+  font-size: 4rem;
  }
 }
 </style>
