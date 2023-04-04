@@ -91,6 +91,7 @@ body {
   height: inherit;
   font-size: 12px;
   padding: 1rem;
+
   padding-bottom: 2rem;
 
   ::-webkit-scrollbar {

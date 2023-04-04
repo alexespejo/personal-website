@@ -29,7 +29,6 @@ function dragElement(elmnt) {
   // get the mouse cursor position at startup:
   pos3 = e.clientX;
   pos4 = e.clientY;
-  document.onmousedown = () => {};
   document.onmouseup = closeDragElement;
   // call a function whenever the cursor moves:
   document.onmousemove = elementDrag;
@@ -76,6 +75,17 @@ function dragElement(elmnt) {
 onMounted(() => {
  const doubleTap = document.getElementById(props.title);
  dragElement(doubleTap);
+ doubleTap.addEventListener("touchmove", function (e) {
+  var touchLocation = e.targetTouches[0];
+  doubleTap.style.left = touchLocation.pageX + "px";
+  doubleTap.style.top = touchLocation.pageY + "px";
+ });
+
+ doubleTap.addEventListener("touchend", function (e) {
+  // current doubleTap position.
+  var x = parseInt(doubleTap.style.left);
+  var y = parseInt(doubleTap.style.top);
+ });
 });
 </script>
 
