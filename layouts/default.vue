@@ -30,10 +30,10 @@ onMounted(() => {
    Under Construction
   </div>
   <div class="linkbar">
-   <a class="retro-border">alexander espejo</a>
+   <NuxtLink to="/" class="retro-border">alexander espejo</NuxtLink>
    <a class="retro-border">inspiration?</a>
    <a class="retro-border">issues?</a>
-   <a class="retro-border">games?</a>
+   <NuxtLink to="/wordle" class="retro-border">games?</NuxtLink>
   </div>
   <div class="content">
    <div class="btn-group">

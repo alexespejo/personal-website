@@ -12,15 +12,15 @@ const changeModal = () => {
    <div class="modal-control">
     <div class="decorator-buttons">
      <img src="../assets/directory_open_cool-1.png" alt="" />
-     <span class="decorator-btn"><span class="underline">F</span>ile</span>
-     <span class="decorator-btn">E<span class="underline">d</span>it</span>
-     <span class="decorator-btn">V<span class="underline">i</span>ew </span>
+     <button class="decorator-btn"><span class="underline">F</span>ile</button>
+     <button class="decorator-btn">E<span class="underline">d</span>it</button>
+     <button class="decorator-btn">V<span class="underline">i</span>ew</button>
     </div>
     <div class="modal-btn-group">
      <button class="modal-control-btn close" @click="changeModal">
       <Icon name="mdi:window-minimize" />
      </button>
-     <button class="modal-control-btn" disabled>
+     <button class="modal-control-btn" disabled style="color: lightgrey">
       <Icon name="mdi:window-maximize" />
      </button>
      <button class="modal-control-btn close" @click="changeModal">
@@ -64,7 +64,7 @@ body {
  border: 1px solid #888;
  width: 100%;
  height: 80%;
- overflow-y: scroll;
+
  box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
  .img-group {
   display: flex;
@@ -91,15 +91,15 @@ body {
   height: inherit;
   font-size: 12px;
   padding: 1rem;
-
+  overflow-y: scroll;
   padding-bottom: 2rem;
 
   ::-webkit-scrollbar {
    width: 2px;
   }
-  //   @media only screen and (min-width: 992px) {
-  //    height: 70%;
-  //   }
+  @media only screen and (min-width: 992px) {
+   height: 80%;
+  }
  }
  .decorator-buttons {
   display: flex;
@@ -111,8 +111,10 @@ body {
   .decorator-btn {
    margin-right: 1px;
    padding: 0.3rem 0.5rem;
-   border: 2px solid #a7a7a7;
+   border: 2px solid #bebdbd;
+   background: #bebdbd;
    font-size: 12px;
+   cursor: pointer;
    &:hover {
     border-top: 2px solid #cccccc;
     border-right: 2px solid #7b7b7b;
@@ -126,7 +128,7 @@ body {
   top: 0;
   z-index: 5;
   font-family: monospace;
-  background: #a7a7a7;
+  background: #bebdbd;
   padding: 0.1rem 0.4rem;
   display: flex;
   justify-content: space-between;
@@ -155,7 +157,6 @@ body {
  display: flex;
 }
 button {
- cursor: pointer;
  width: fit-content;
  color: black;
  display: flex;
