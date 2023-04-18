@@ -209,8 +209,7 @@ a {
    font-size: 1.3rem;
   }
  }
- p {
- }
+
  svg {
   width: 20%;
   padding: 0 0.5rem;

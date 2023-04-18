@@ -23,7 +23,7 @@ export const useModals = defineStore("modals", () => {
  const modals = reactive({
   welcome: {
    name: "welcome",
-   active: false,
+   active: true,
   },
   techinfo: {
    name: "techinfo",
