@@ -31,7 +31,7 @@ onMounted(() => {
   </div>
   <div class="linkbar">
    <NuxtLink to="/" class="retro-border">alexander espejo</NuxtLink>
-   <a class="retro-border">inspiration?</a>
+   <NuxtLink to="/pinia" class="retro-border">inspiration?</NuxtLink>
    <a class="retro-border">issues?</a>
    <NuxtLink to="/wordle" class="retro-border">games?</NuxtLink>
   </div>
@@ -47,7 +47,7 @@ onMounted(() => {
      <Icon name="mdi:linkedin" class="icon" />
     </a>
     <a href="https://www.instagram.com/_yourpalalex/" class="btn">
-     <Icon name="carbon:user-avatar-filled-alt" class="icon" />
+     <Icon name="mdi:account-group" class="icon" />
     </a>
     <a href="https://www.instagram.com/_yourpalalex/" class="btn">
      <Icon name="mdi:instagram" class="icon" />

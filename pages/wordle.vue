@@ -122,6 +122,7 @@ watch(query, () => {
   <span v-show="table.gameEnd" class="modal">
    <span v-if="table.win">WINNER</span>
    <span v-else>LOSER</span>
+   <span>Word: {{ table.target }}</span>
    <a href="/wordle" style="border: 2px white solid; color: white"
     >Play Again</a
    >
@@ -167,8 +168,7 @@ a {
 main {
  display: flex;
  flex-direction: column;
- justify-content: center;
- align-items: center;
+
  font-size: 50px;
 }
 #query-input {

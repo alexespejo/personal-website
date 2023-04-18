@@ -15,6 +15,8 @@
     "sass-loader": "^13.2.1"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.6.6",
+    "@pinia/nuxt": "^0.4.8",
     "vue-simple-icons": "^7.5.0"
   }
 }

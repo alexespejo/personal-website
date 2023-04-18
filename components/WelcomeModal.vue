@@ -1,9 +1,7 @@
-<script setup lang="ts">
-const props = defineProps(["id"]);
-</script>
+<script setup lang="ts"></script>
 
 <template>
- <Modal :id="props.id">
+ <Modal name="welcome">
   <div class="welcome-content">
    <span class="rainbow-shadow welcome-text">Welcome!!</span>
 

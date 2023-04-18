@@ -3,9 +3,6 @@ const props = defineProps(["title"]);
 const onHold = ref(false);
 
 //temp
-const styleObject = reactive({
- color: "red",
-});
 
 let topBrkPt = useTopBrkPt();
 let rightBrkPt = useRightBrkPt();
@@ -42,7 +39,7 @@ function dragElement(elmnt) {
   pos2 = pos4 - e.clientY;
   pos3 = e.clientX;
   pos4 = e.clientY;
-  console.log([pos1, pos2, pos3, pos4]);
+  //   console.log([pos1, pos2, pos3, pos4]);
   // set the element's new position:
   if (
    !(
@@ -54,15 +51,19 @@ function dragElement(elmnt) {
   ) {
    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-  } else if (pos4 <= topBrkPt.value + 50) {
-   elmnt.style.top = elmnt.style.top = elmnt.offsetTop + 10 + "px";
-  } else if (pos4 >= bottomBrkPt.value - 50) {
-   elmnt.style.top = elmnt.style.top = elmnt.offsetTop - 10 + "px";
-  } else if (pos3 <= 44) {
-   elmnt.style.left = elmnt.offsetLeft + 10 + "px";
-  } else if (pos3 >= rightBrkPt.value - 50) {
-   elmnt.style.left = elmnt.offsetLeft - 10 + "px";
+  } else if (
+   pos4 <= topBrkPt.value + 50 ||
+   pos4 >= bottomBrkPt.value - 50 ||
+   pos3 <= 44 ||
+   pos3 >= rightBrkPt.value - 50
+  ) {
+   closeDragElement();
   }
+  let position = elmnt.getBoundingClientRect();
+  let posLef = (position.left / window.innerWidth) * 100 + "%";
+  let posTop = (position.top / window.innerHeight) * 100 + "%";
+  elmnt.style.top = posTop;
+  elmnt.style.left = posLef;
  }
 
  function closeDragElement() {
@@ -74,6 +75,7 @@ function dragElement(elmnt) {
 }
 onMounted(() => {
  const doubleTap = document.getElementById(props.title);
+
  dragElement(doubleTap);
  doubleTap.addEventListener("touchmove", function (e) {
   var touchLocation = e.targetTouches[0];

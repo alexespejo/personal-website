@@ -1,13 +1,25 @@
 <script setup>
-const props = defineProps(["id"]);
-const useShow = showModal();
-const changeModal = () => {
- useShow.value = false;
-};
+import { useModals } from "~~/stores/eduardo";
+const props = defineProps(["name"]);
+const id = ref(props.name + "-id");
+const useShow = useModals();
+
+onUpdated(() => {
+ const modalRef = document.getElementById(props.name + "-id");
+ window.onclick = function (event) {
+  if (event.target === modalRef) {
+   useShow.toggleOff();
+  }
+ };
+});
 </script>
 
 <template>
- <div :id="props.id" class="modal">
+ <div
+  :id="id"
+  class="modal"
+  :class="useShow.modalDisplay(useShow.modals[props.name].active)"
+ >
   <div class="modal-content">
    <div class="modal-control">
     <div class="decorator-buttons">
@@ -17,13 +29,13 @@ const changeModal = () => {
      <button class="decorator-btn">V<span class="underline">i</span>ew</button>
     </div>
     <div class="modal-btn-group">
-     <button class="modal-control-btn close" @click="changeModal">
+     <button class="modal-control-btn close" @click="useShow.toggleOff">
       <Icon name="mdi:window-minimize" />
      </button>
      <button class="modal-control-btn" disabled style="color: lightgrey">
       <Icon name="mdi:window-maximize" />
      </button>
-     <button class="modal-control-btn close" @click="changeModal">
+     <button class="modal-control-btn close" @click="useShow.toggleOff">
       <Icon name="mdi:window-close" />
      </button>
     </div>
