@@ -92,9 +92,17 @@ onMounted(() => {
 </script>
 
 <template>
- <div :id="props.title" class="draggable-element">
-  <div class="icon-container" :class="onHold ? 'dotted-border z-over ' : ''">
-   <div :id="props.title + 'header'"><slot /></div>
+ <div :id="props.title" class="draggable-element flex flex-col items-center">
+  <div
+   class="icon-container text-center p-3"
+   :class="onHold ? 'dotted-border z-over ' : ''"
+  >
+   <div
+    :id="props.title + 'header'"
+    class="flex flex-col items-center justify-center text-white text-xs font-mono"
+   >
+    <slot />
+   </div>
   </div>
  </div>
 </template>
@@ -122,7 +130,9 @@ onMounted(() => {
  /* styles for extra large devices */
 }
 /* Extra small devices (phones, 600px and down) */
-
+img {
+ @apply w-12 h-12 sm:w-20 sm:h-20 2xl:w-20 2xl:h-20;
+}
 .draggable-element {
  cursor: pointer;
  width: fit-content;
@@ -137,13 +147,13 @@ onMounted(() => {
  border: rgb(212, 212, 212) 2.5px;
  border-style: dotted;
 }
-.icon-container {
- padding: 0.5rem;
- position: absolute;
- display: flex;
- flex-direction: column;
- align-items: center;
-}
+// .icon-container {
+//  padding: 0.5rem;
+//  position: absolute;
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+// }
 
 .z-over {
  z-index: 100;

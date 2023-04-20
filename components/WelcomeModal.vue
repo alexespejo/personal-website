@@ -1,19 +1,23 @@
-<script setup lang="ts"></script>
-
 <template>
  <Modal name="welcome">
+  <Head>
+   <Title>Alexander Espejo Portfolio</Title>
+   <Meta name="description" content="My app description" />
+  </Head>
   <div class="welcome-content">
    <span class="rainbow-shadow welcome-text">Welcome!!</span>
-
    <p>
     HIYA!!👋 😁 welcome to my website!!! 💯💯🔥🔥🔥🥳🇵🇭🤙
     <br />
     <span>
      My name is Alexander Espejo, I'm a first year computer science major at
-     <a href="https://orangecoastcollege.edu/">Orange Coast College</a> 🎓 I'm a
-     self-taught frontend developer 👨‍💻 and aspring software engineer ⚙️ (check
-     out my
+     <a class="underline" href="https://orangecoastcollege.edu/"
+      >Orange Coast College</a
+     >
+     🎓 I'm a self-taught frontend developer 👨‍💻 and aspring software engineer ⚙️
+     (check out my
      <a
+      class="underline"
       href="https://github.com/alexespejo?tab=overview&from=2022-03-01&to=2022-03-11"
       >Github</a
      >
@@ -36,6 +40,7 @@
    <img
     src="https://i0.wp.com/www.printmag.com/wp-content/uploads/2021/02/4cbe8d_f1ed2800a49649848102c68fc5a66e53mv2.gif?fit=476%2C280&ssl=1"
     alt=""
+    class="h-1/2 w-14"
    />
    <br />
    <span>I hope my irony landed otherwise this is really cringe -.-''</span>
@@ -44,7 +49,10 @@
 </template>
 
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap");
 .welcome-content {
+ font-family: "Comic Neue", cursive;
+
  display: flex;
  position: relative;
  flex-direction: column;
@@ -68,7 +76,8 @@
   width: 10%;
  }
  .welcome-text {
-  font-family: "Roboto", sans-serif;
+  font-family: "Comic Neue", cursive;
+
   font-size: 2rem;
   align-self: center;
  }

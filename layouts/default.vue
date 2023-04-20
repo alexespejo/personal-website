@@ -1,4 +1,7 @@
 <script setup>
+import { useModals } from "~~/stores/eduardo";
+
+const modal = useModals();
 let topBrkPt = useTopBrkPt();
 let rightBrkPt = useRightBrkPt();
 let bottomBrkPt = useBottomBrkPt();
@@ -12,31 +15,16 @@ onMounted(() => {
 </script>
 
 <template>
- <nav class="navbar" id="navbar">
-  <div
-   style="
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    border: #f06e72 1px solid;
-    width: fit-content;
-    font-size: 0.5rem;
-    background: #f7b6b8;
-    border-radius: 1rem;
-    padding: 0.2rem 0.5rem;
-    color: #f06e72;
-   "
-  >
-   Under Construction
-  </div>
+ <nav class="navbar bg-neutral-300 text-zinc-500" id="navbar">
+  <WarningUnderConstruction />
   <div class="linkbar">
-   <NuxtLink to="/" class="retro-border">alexander espejo</NuxtLink>
-   <NuxtLink to="/pinia" class="retro-border">inspiration?</NuxtLink>
-   <a class="retro-border">issues?</a>
-   <NuxtLink to="/wordle" class="retro-border">games?</NuxtLink>
+   <NuxtLink to="/" class="retro-border-hover">alexander espejo</NuxtLink>
+   <button class="retro-border-hover">Q n A</button>
+   <NuxtLink class="retro-border-hover">issues?</NuxtLink>
+   <NuxtLink to="/wordle" class="retro-border-hover">games?</NuxtLink>
   </div>
-  <div class="content">
-   <div class="btn-group">
+  <div class="content flex items-center p-2 border-t-2 border-t-neutral-500">
+   <div class="btn-group flex gap-2">
     <a
      href="https://github.com/alexespejo?tab=overview&from=2022-03-01&to=2022-03-11"
      class="btn"
@@ -46,16 +34,14 @@ onMounted(() => {
     <a href="https://www.linkedin.com/in/alex-espejo-4a604920a/" class="btn">
      <Icon name="mdi:linkedin" class="icon" />
     </a>
-    <a href="https://www.instagram.com/_yourpalalex/" class="btn">
+    <button class="btn" @click="modal.toggleContactsModal">
      <Icon name="mdi:account-group" class="icon" />
-    </a>
-    <a href="https://www.instagram.com/_yourpalalex/" class="btn">
-     <Icon name="mdi:instagram" class="icon" />
-    </a>
+    </button>
    </div>
   </div>
  </nav>
  <main class="main-body" id="main-body">
+  <ContactsModal />
   <slot />
  </main>
 </template>
@@ -65,17 +51,16 @@ onMounted(() => {
 body {
  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
- background-color: #e8e8e8;
  box-sizing: border-box;
  padding: 0;
  margin: 0;
  overflow: hidden;
 }
 nav {
- height: 12vh;
+ height: 16vh;
 }
 main {
- height: 88vh;
+ height: 84vh;
 }
 
 .layout-body {
@@ -84,108 +69,123 @@ main {
 }
 .main-body {
  background: #00888a;
- padding: 0.5rem;
-}
-
-.btn {
- width: 3rem;
- height: 3rem;
- background: #c6c6c6;
- display: flex;
- align-items: center;
- justify-content: center;
- border-top: 3px solid #dcdcdc;
- border-right: 3px solid #7b7b7b;
- border-bottom: 3px solid #7b7b7b;
- border-left: 3px solid #dcdcdc;
- box-shadow: 3px 3px 3px rgba(114, 114, 114, 0.5),
-  inset 1px 1px 3px rgba(227, 227, 227, 0.4);
- cursor: pointer;
-
- &:hover {
-  box-shadow: 1px 1px 3px rgba(114, 114, 114, 0.5),
-   inset 2px 2px 2px rgba(227, 227, 227, 0.5);
- }
- .icon {
-  font-size: 2.5rem;
-  color: #5c5c5c;
-
-  &:hover {
-   color: #747474;
-  }
- }
- @media only screen and (min-width: 768px) {
-  width: 3rem;
-  height: 3rem;
- }
- @media only screen and (min-width: 992px) {
-  height: 3rem;
-  width: 3rem;
-  .icon {
-   font-size: 2.5rem;
-  }
- }
- @media only screen and (min-width: 1200px) {
-  height: 3.5rem;
-  width: 3.5rem;
-  .icon {
-   font-size: 3rem;
-  }
- }
-}
-
-#profileImage {
- border-top: 3px solid #cccccc;
- border-right: 3px solid #7b7b7b;
- border-bottom: 3px solid #7b7b7b;
- border-left: 3px solid #cccccc;
+ //  padding: 0.5rem;
 }
 .navbar {
- height: fit-content;
- z-index: 9999;
- background-color: #c6c6c6;
- display: flex;
- flex-direction: column;
- border-top: 3px solid #cccccc;
- border-right: 3px solid #7b7b7b;
- border-bottom: 3px solid #7b7b7b;
- border-left: 3px solid #cccccc;
- box-shadow: 5px 5px 5px#464646;
- .content {
-  display: flex;
-  padding: 0.5rem 1rem;
-  justify-content: space-between;
- }
+ @apply border-4 border-r-slate-500 border-b-slate-500 border-l-gray-200 border-t-gray-200;
  .linkbar {
-  background: #bfbfbf;
-  border-bottom: 1px solid rgb(149, 149, 149);
-  padding: 0.1rem 0.1rem;
-  width: inherit;
-  height: 1.5rem;
-  display: flex;
-  a {
-   padding: 0 0.5rem;
-   display: flex;
-   align-items: center;
+  @apply flex gap-1 text-xs sm:text-sm h-1/4 p-0.5 bg-stone-300;
+  a,
+  button {
+   @apply flex items-center px-1  border-2 border-stone-300 hover:border-r-slate-500 hover:border-b-slate-500 hover:border-l-slate-200 hover:border-t-slate-200 bg-neutral-300 underline text-blue-800;
   }
  }
- .btn-group {
-  display: flex;
-  gap: 0.5rem;
+ .content {
+  @apply px-2 h-3/4;
+  .btn-group {
+   @apply h-full w-full;
+  }
+  .btn {
+   @apply border-4 border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 flex items-center bg-neutral-300 p-0.5 hover:text-neutral-400 h-full w-fit;
+   svg {
+    @apply h-12 w-12 sm:h-14 sm:w-14 2xl:h-16 2xl:w-16;
+   }
+  }
  }
 }
-
 .retro-border {
- font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
- font-size: 0.75rem;
- border: 2px solid #bfbfbf;
-
- &:hover {
-  border-top: 2px solid #dedede;
-  border-right: 2px solid #7b7b7b;
-  border-bottom: 2px solid #7b7b7b;
-  border-left: 2px solid #dedede;
- }
+ @apply border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200  border-neutral-300;
 }
+//
+// .btn {
+//  @apply w-9 h-9;
+//  background: #c6c6c6;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//  border-top: 3px solid #dcdcdc;
+//  border-right: 3px solid #7b7b7b;
+//  border-bottom: 3px solid #7b7b7b;
+//  border-left: 3px solid #dcdcdc;
+//  box-shadow: 3px 3px 3px rgba(114, 114, 114, 0.5),
+//   inset 1px 1px 3px rgba(227, 227, 227, 0.4);
+//  cursor: pointer;
+//
+//  &:hover {
+//   box-shadow: 1px 1px 3px rgba(114, 114, 114, 0.5),
+//    inset 2px 2px 2px rgba(227, 227, 227, 0.5);
+//  }
+//  .icon {
+//   font-size: 2.5rem;
+//   color: #5c5c5c;
+//
+//   &:hover {
+//    color: #747474;
+//   }
+//  }
+//  @media only screen and (min-width: 768px) {
+//   width: 3rem;
+//   height: 3rem;
+//  }
+//  @media only screen and (min-width: 992px) {
+//   height: 3rem;
+//   width: 3rem;
+//   .icon {
+//    font-size: 2.5rem;
+//   }
+//  }
+//  @media only screen and (min-width: 1200px) {
+//   height: 3.5rem;
+//   width: 3.5rem;
+//   .icon {
+//    font-size: 3rem;
+//   }
+//  }
+// }
+//
+// #profileImage {
+//  border-top: 3px solid #cccccc;
+//  border-right: 3px solid #7b7b7b;
+//  border-bottom: 3px solid #7b7b7b;
+//  border-left: 3px solid #cccccc;
+// }
+// .navbar {
+//  background: #bfbfbf;
+//  border-top: 3px solid #dcdcdc;
+//  border-right: 3px solid #7b7b7b;
+//  border-bottom: 3px solid #7b7b7b;
+//  border-left: 3px solid #dcdcdc;
+//  .content {
+//  }
+//  .linkbar {
+//   @apply flex justify-start border-b-2 border-b-neutral-500;
+//   a {
+//    //  font-size: 0.5rem;
+//    @apply bg-inherit flex items-center justify-center p-1;
+//   }
+//  }
+//  .btn-group {
+//   a {
+//   }
+//  }
+// }
+// .retor-border {
+//  border-top: 2px solid #dedede;
+//  border-right: 2px solid #7b7b7b;
+//  border-bottom: 2px solid #7b7b7b;
+//  border-left: 2px solid #dedede;
+// }
+// .retro-border-hover {
+//  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+//   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+//  //  font-size: 0.75rem;
+//  border: 2px solid #bfbfbf;
+//
+//  &:hover {
+//   border-top: 2px solid #dedede;
+//   border-right: 2px solid #7b7b7b;
+//   border-bottom: 2px solid #7b7b7b;
+//   border-left: 2px solid #dedede;
+//  }
+// }
 </style>

@@ -1,18 +1,19 @@
 <script setup></script>
 <template>
- <Modal name="techinfo">
-  <div class="tech-modal-content">
+ <Modal name="techstack">
+  <div class="tech-modal-content text-xs leading-relaxed sm:text-sm">
    <div class="tech-stack">
-    <span>Tech Stack</span>
+    <span class="text-lg sm:text-xl">Tech Stack</span>
     <div class="divider"></div>
-    <div>
+    <div class="flex justify-center gap-3 icon-groups">
      <Icon name="logos:vue" />
      <Icon name="vscode-icons:file-type-nuxt" />
      <Icon name="logos:typescript-icon" />
      <Icon name="vscode-icons:file-type-sass" />
+     <Icon name="vscode-icons:file-type-tailwind" />
     </div>
     <p>
-     This is the tech stack of my personal SPA (single-page application). I used
+     Here is tech stack of my personal SPA (single-page application). I used
      Nuxt3, TypeScript, and SASS/SCSS to create a fast, modern, and beautiful
      web app. Nuxt3 is a framework that combines Vue3, Vite, and Nitro to
      provide a full-stack solution for building web apps. TypeScript is a
@@ -24,6 +25,7 @@
      <br />
      Check out the code on
      <a
+      class="text-blue-800 underline"
       href="https://github.com/alexespejo?tab=overview&from=2022-03-01&to=2022-03-11"
       >Github</a
      >
@@ -31,7 +33,7 @@
    </div>
 
    <div class="tech-list">
-    <span>Technologies I'm Familiar With</span>
+    <span>Technologies and languges I'm Familiar With</span>
     <div class="divider"></div>
     <div class="icon-groups">
      <Icon name="mdi:language-html5" />
@@ -82,8 +84,24 @@
      <Icon name="mdi:language-rust" />
      <Icon name="simple-icons:cockroachlabs" />
     </div>
-    <span>I'm a Jack of all trades master of none :/</span>
    </div>
   </div>
  </Modal>
 </template>
+
+<style lang="scss">
+.divider {
+ @apply m-2;
+}
+.icon-groups {
+ @apply flex gap-5 mb-3 flex-wrap;
+ svg {
+  @apply w-10 h-10 text-neutral-400;
+ }
+}
+.tech-list {
+ span {
+  @apply text-lg sm:text-xl;
+ }
+}
+</style>

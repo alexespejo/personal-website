@@ -25,8 +25,8 @@ export const useModals = defineStore("modals", () => {
    name: "welcome",
    active: true,
   },
-  techinfo: {
-   name: "techinfo",
+  techstack: {
+   name: "techstack",
    active: false,
   },
   documents: {
@@ -46,9 +46,9 @@ export const useModals = defineStore("modals", () => {
   toggleOff();
   modals.welcome.active = true;
  }
- function toggleTechInfoModal() {
+ function toggletechtackModal() {
   toggleOff();
-  modals.techinfo.active = true;
+  modals.techstack.active = true;
  }
  function toggleDocumentsModal() {
   toggleOff();
@@ -61,7 +61,7 @@ export const useModals = defineStore("modals", () => {
  function toggleOff() {
   head_control.value = false;
   modals.welcome.active = false;
-  modals.techinfo.active = false;
+  modals.techstack.active = false;
   modals.documents.active = false;
   modals.contacts.active = false;
  }
@@ -69,7 +69,7 @@ export const useModals = defineStore("modals", () => {
  return {
   modals,
   toggleWelcomeModal,
-  toggleTechInfoModal,
+  toggletechtackModal,
   toggleDocumentsModal,
   toggleContactsModal,
   toggleOff,
