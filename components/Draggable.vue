@@ -79,8 +79,11 @@ onMounted(() => {
  dragElement(doubleTap);
  doubleTap.addEventListener("touchmove", function (e) {
   var touchLocation = e.targetTouches[0];
-  doubleTap.style.left = touchLocation.pageX + "px";
-  doubleTap.style.top = touchLocation.pageY + "px";
+  var elementWidth = doubleTap.offsetWidth;
+  var elementHeight = doubleTap.offsetHeight;
+
+  doubleTap.style.left = touchLocation.pageX - elementWidth / 2 + "px";
+  doubleTap.style.top = touchLocation.pageY - elementHeight / 2 + "px";
  });
 
  doubleTap.addEventListener("touchend", function (e) {

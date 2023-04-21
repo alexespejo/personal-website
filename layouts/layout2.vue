@@ -15,9 +15,12 @@ onMounted(() => {
 </script>
 
 <template>
+ <main class="main-body" id="main-body">
+  <ContactsModal />
+  <slot />
+ </main>
  <nav class="navbar bg-neutral-300 text-zinc-500" id="navbar">
   <WarningUnderConstruction />
-
   <div class="linkbar">
    <NuxtLink to="/" class="retro-border-hover">alexander espejo</NuxtLink>
    <button class="retro-border-hover">Q n A</button>
@@ -37,17 +40,9 @@ onMounted(() => {
     <button class="btn" @click="modal.toggleContactsModal">
      <Icon name="mdi:account-group" class="icon" />
     </button>
-    <button class="btn" @click="modal.toggleWordleModal">
-     <Icon name="mdi:gamepad-square-outline" class="icon" />
-    </button>
    </div>
   </div>
  </nav>
- <main class="main-body" id="main-body">
-  <WordleModal />
-  <ContactsModal />
-  <slot />
- </main>
 </template>
 
 <style lang="scss">
@@ -81,7 +76,7 @@ main {
   @apply flex gap-1 text-xs sm:text-sm h-1/4 p-0.5 bg-stone-300;
   a,
   button {
-   @apply flex items-center px-1  border-2 border-stone-300 hover:border-r-slate-500 hover:border-b-slate-500 hover:border-l-slate-200 hover:border-t-slate-200 bg-neutral-300 underline text-purple-800;
+   @apply flex items-center px-1  border-2 border-stone-300 hover:border-r-slate-500 hover:border-b-slate-500 hover:border-l-slate-200 hover:border-t-slate-200 bg-neutral-300 underline text-blue-800;
   }
  }
  .content {
@@ -92,7 +87,7 @@ main {
   .btn {
    @apply border-4 border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 flex items-center bg-neutral-300 p-0.5 hover:text-neutral-400;
    svg {
-    @apply h-full w-full;
+    @apply h-12 w-12 sm:h-14 sm:w-14 2xl:h-16 2xl:w-16;
    }
   }
  }

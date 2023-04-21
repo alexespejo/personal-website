@@ -15,28 +15,64 @@ const modal = useModals();
 //  bottomBrkPt.value = boxTop.bottom;
 //  console.log("update");
 // });
+onUpdated(() => {
+ console.log("update");
+});
 </script>
 <template>
  <NuxtLayout>
-  <main>
+  <main class="">
    <WelcomeModal />
    <TechModal />
    <DocumentModal />
-
-   <div
-    class="flex flex-col items-center justify-center w-fit p-3 cursor-pointer"
-    id="computer-icon"
-    @click="modal.toggleWelcomeModal"
-   >
-    <img
-     alt="my computer"
-     id="computer-image"
-     src="../assets/computer_explorer-3.png"
-     class="w-12 h-12"
-    />
-    <span style="font-size: 0.7rem; padding: 0.5rem" class="text-zinc-300"
-     >My Computer</span
+   <TrashModal />
+   <div class="flex flex-col w-fit items-center p-3 static-icons">
+    <div
+     class="flex flex-col items-center justify-center w-fit cursor-pointer"
+     id="computer-icon"
+     @click="modal.toggleWelcomeModal"
     >
+     <img
+      alt="my computer"
+      id="computer-image"
+      src="../assets/computer_explorer-3.png"
+     />
+     <span style="font-size: 0.7rem; padding: 0.5rem" class="text-zinc-300"
+      >Hello World</span
+     >
+    </div>
+    <div
+     class="flex flex-col items-center justify-center w-fit cursor-pointer"
+     id="computer-icon "
+    >
+     <img
+      alt="my computer"
+      id="computer-image"
+      src="../assets/recycle_bin_full-3.png"
+      @click="modal.toggleTrashModal"
+     />
+     <span style="font-size: 0.7rem; padding: 0.5rem" class="text-zinc-300"
+      >Trash</span
+     >
+    </div>
+    <div
+     class="flex flex-col items-center justify-center w-fit cursor-pointer"
+     id="computer-icon "
+    >
+     <a
+      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+     >
+      <img
+       alt="my computer"
+       id="computer-image"
+       src="../assets/help_book_cool-3.png"
+      />
+     </a>
+
+     <span style="font-size: 0.7rem; padding: 0.5rem" class="text-zinc-300"
+      >???</span
+     >
+    </div>
    </div>
 
    <Draggable
@@ -44,16 +80,18 @@ const modal = useModals();
     class="drag-pos-1"
     @dblclick="modal.toggletechtackModal"
    >
-    <img src="../assets/directory_control_panel-3.png" />
+    <img src="../assets/directory_control_panel-3.png" class="dragging-icon" />
     <span class="dragging-text" id="press-test">technology</span>
-   </Draggable>
-
-   <Draggable title="folder2" class="drag-pos-2">
-    <ProfilePic class="dragging-icon" />
    </Draggable>
    <Draggable title="folder3" class="drag-pos-3">
     <img src="../assets/directory_closed-3.png" class="dragging-icon" />
+    <span class="dragging-text">im broken</span>
    </Draggable>
+   <Draggable title="folder2" class="drag-pos-2">
+    <ProfilePic class="dragging-icon" />
+   </Draggable>
+
+   <!-- <Draggable title="folder3" class="drag-pos-3"> </Draggable> -->
    <Draggable
     title="documents-folder"
     class="drag-pos-4"
@@ -88,6 +126,11 @@ const modal = useModals();
 // a {
 //  cursor: pointer;
 // }
+.static-icons {
+ img {
+  @apply w-8 h-8 sm:w-12 sm:h-12;
+ }
+}
 .block {
  display: flex;
 }
@@ -124,7 +167,7 @@ const modal = useModals();
 }
 .drag-pos-3 {
  top: 25%;
- right: 32%;
+ right: 50%;
 }
 .drag-pos-2 {
  top: 30%;

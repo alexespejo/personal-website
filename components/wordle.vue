@@ -118,45 +118,43 @@ watch(query, () => {
 </script>
 
 <template>
- <NuxtLayout>
-  <main class="flex items-center">
-   <span v-show="table.gameEnd" class="modal">
-    <span v-if="table.win">WINNER</span>
-    <span v-else>LOSER</span>
-    <span>Word: {{ table.target }}</span>
-    <a href="/wordle" style="border: 2px white solid; color: white"
-     >Play Again</a
-    >
+ <main class="flex items-center h-fit">
+  <span v-show="table.gameEnd" class="modal">
+   <span v-if="table.win">WINNER</span>
+   <span v-else>LOSER</span>
+   <span>Word: {{ table.target }}</span>
+   <a href="/wordle" style="border: 2px white solid; color: white"
+    >Play Again</a
+   >
+  </span>
+  <div class="table w-fit bg-zinc-300">
+   <span style="text-align: center" class=""
+    >{{ table.gameEnd ? table.target : "..." }}
    </span>
-   <div class="table w-fit bg-zinc-300">
-    <span style="text-align: center"
-     >{{ table.gameEnd ? table.target : "..." }}
-    </span>
-    <div
-     v-for="(row, rowIndex) in tableDisplay"
-     class="table-rows w-fit"
-     :key="rowIndex"
+   <div
+    v-for="(row, rowIndex) in tableDisplay"
+    class="table-rows w-fit"
+    :key="rowIndex"
+   >
+    <span
+     v-for="(node, nodeIndex) in row"
+     class="table-node w-12 h-12 sm:w-14 sm:h-14"
+     :key="nodeIndex"
+     :class="letterChecker(nodeIndex, rowIndex, node)"
     >
-     <span
-      v-for="(node, nodeIndex) in row"
-      class="table-node w-11 h-11"
-      :key="nodeIndex"
-      :class="letterChecker(nodeIndex, rowIndex, node)"
-     >
-      <span v-if="node !== 0">{{ node }}</span>
-     </span>
-    </div>
+     <span v-if="node !== 0">{{ node }}</span>
+    </span>
    </div>
-   <input
-    v-model="query"
-    @keyup.enter="pushToMatrix"
-    id="query-input"
-    class="bg-zinc-300"
-    :disabled="table.gameEnd"
-   />
-   <NuxtLink to="/wordle" v-show="table.gameEnd">Reset</NuxtLink>
-  </main>
- </NuxtLayout>
+  </div>
+  <input
+   v-model="query"
+   @keyup.enter="pushToMatrix"
+   id="query-input"
+   class="bg-zinc-300 border-2 border-black border-dotted"
+   :disabled="table.gameEnd"
+  />
+  <NuxtLink to="/wordle" v-show="table.gameEnd">Reset</NuxtLink>
+ </main>
 </template>
 
 <style lang="scss" scoped>

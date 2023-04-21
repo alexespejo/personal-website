@@ -1,6 +1,5 @@
 <template>
- <Modal name="contacts">
-  <WarningUnderConstruction />
+ <Modal name="contacts" mini="true">
   <section></section>
   <section class="retro-border border-4 w-fit p-4 text-md">
    <div>
@@ -39,4 +38,6 @@
    </div>
   </section>
  </Modal>
+
+ <WarningUnderConstruction />
 </template>

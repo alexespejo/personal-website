@@ -1,9 +1,18 @@
 <script setup>
 import { useModals } from "~~/stores/eduardo";
-const props = defineProps(["name"]);
+const props = defineProps(["name", "mini"]);
 const id = ref(props.name + "-id");
 const useShow = useModals();
+const refFullScreen = ref(false);
+const fullScreen = reactive({
+ width: "100%",
+ height: "100%",
+ margin: "0",
+});
 
+const openFullScreen = () => {
+ refFullScreen.value = !refFullScreen.value;
+};
 onUpdated(() => {
  const modalRef = document.getElementById(props.name + "-id");
  window.onclick = function (event) {
@@ -15,10 +24,15 @@ onUpdated(() => {
 </script>
 
 <template>
- <div :id="id" class="modal block" v-show="useShow.modals[props.name].active">
+ <div
+  :id="id"
+  class="modal block relative"
+  v-show="useShow.modals[props.name].active"
+ >
   <div
-   style="margin: auto"
-   class="bg-neutral-300 w-full lg:w-2/3 h-3/4 border-4"
+   class="bg-neutral-300 border-4 mx-auto mt-10"
+   :class="!props.mini ? 'w-full lg:w-2/3 h-3/4' : 'w-fit h-fit'"
+   :style="refFullScreen ? fullScreen : ''"
   >
    <div class="p-1 font-mono" style="height: 10%">
     <div
@@ -33,8 +47,15 @@ onUpdated(() => {
       <button class="modal-control-btn close" @click="useShow.toggleOff">
        <Icon name="mdi:window-minimize" class="w-3 h-3" />
       </button>
-      <button class="modal-control-btn" disabled>
-       <Icon name="mdi:window-maximize" />
+      <button
+       class="modal-control-btn"
+       @click="openFullScreen"
+       :disabled="props.mini"
+      >
+       <Icon
+        :class="props.mini ? 'text-zinc-400' : ''"
+        :name="refFullScreen ? 'mdi:dock-window' : 'mdi:window-maximize'"
+       />
       </button>
       <button class="modal-control-btn close" @click="useShow.toggleOff">
        <Icon name="mdi:window-close" />
