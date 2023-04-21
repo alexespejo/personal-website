@@ -1,6 +1,7 @@
 <script setup>
 import { useModals } from "~~/stores/eduardo";
 
+
 const modal = useModals();
 let topBrkPt = useTopBrkPt();
 let rightBrkPt = useRightBrkPt();
