@@ -162,20 +162,20 @@ onUpdated(() => {
 //  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
 // }
 .drag-pos-1 {
- top: 55%;
- right: 40%;
+ top: 70%;
+ left: 15%;
 }
 .drag-pos-3 {
  top: 25%;
- right: 50%;
+ left: 30%;
 }
 .drag-pos-2 {
- top: 30%;
- right: 10%;
+ top: 40%;
+ left: 45%;
 }
 .drag-pos-4 {
- bottom: 30%;
- left: 15%;
+ top: 55%;
+ left: 60%;
 }
 // #computer-icon {
 //  cursor: pointer;
