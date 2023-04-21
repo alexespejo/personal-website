@@ -7,6 +7,13 @@ export default defineNuxtConfig({
   "nuxt-svgo",
   "@nuxt/content",
  ],
+ postcss: {
+  plugins: {
+   tailwindcss: {},
+   autoprefixer: {},
+  },
+ },
+
  pinia: {
   autoImports: [
    // automatically imports `defineStore`
