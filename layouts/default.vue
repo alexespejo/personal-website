@@ -1,7 +1,6 @@
 <script setup>
 import { useModals } from "~~/stores/eduardo";
 
-
 const modal = useModals();
 let topBrkPt = useTopBrkPt();
 let rightBrkPt = useRightBrkPt();
@@ -16,6 +15,14 @@ onMounted(() => {
 </script>
 
 <template>
+ <Head>
+  <Title>Alexander Espejo</Title>
+  <Meta
+   name="description"
+   content="My name is Alexander Espejo, I'm a first year computer science major at Orange Coast College 🎓 I'm a self-taught frontend developer 👨‍💻 and aspring software engineer ⚙️ (check out my Github if you get the chance 🤩)profile picture
+I love to develop software 🖥️ and build apps 📱 that can make a positive impact on the world 🌍. I'm always eager to learn and practice new skills 🏋️‍♂️ and technologies, and I enjoy collaborating with other passionate coders 🤝. I'm excited to share my projects and ideas with you! 🫶"
+  />
+ </Head>
  <nav class="navbar bg-neutral-300 text-zinc-500" id="navbar">
   <WarningUnderConstruction />
 
