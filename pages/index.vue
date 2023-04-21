@@ -171,7 +171,7 @@ onUpdated(() => {
 }
 .drag-pos-2 {
  top: 30%;
- left: 25%;
+ right: 10%;
 }
 .drag-pos-4 {
  bottom: 30%;
