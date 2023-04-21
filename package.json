@@ -11,7 +11,6 @@
  "devDependencies": {
   "nuxt": "^3.3.2",
   "nuxt-icon": "^0.3.3",
-  "nuxt-svgo": "^1.2.1",
   "sass": "^1.60.0",
   "sass-loader": "^13.2.1"
  },
