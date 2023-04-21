@@ -15,39 +15,59 @@ onUpdated(() => {
 </script>
 
 <template>
- <div
-  :id="id"
-  class="modal"
-  :class="useShow.modalDisplay(useShow.modals[props.name].active)"
- >
-  <div class="modal-content">
-   <div class="modal-control">
-    <div class="decorator-buttons">
-     <img src="../assets/directory_open_cool-1.png" alt="" />
-     <button class="decorator-btn"><span class="underline">F</span>ile</button>
-     <button class="decorator-btn">E<span class="underline">d</span>it</button>
-     <button class="decorator-btn">V<span class="underline">i</span>ew</button>
-    </div>
-    <div class="modal-btn-group">
-     <button class="modal-control-btn close" @click="useShow.toggleOff">
-      <Icon name="mdi:window-minimize" />
-     </button>
-     <button class="modal-control-btn" disabled style="color: lightgrey">
-      <Icon name="mdi:window-maximize" />
-     </button>
-     <button class="modal-control-btn close" @click="useShow.toggleOff">
-      <Icon name="mdi:window-close" />
-     </button>
+ <div :id="id" class="modal block" v-show="useShow.modals[props.name].active">
+  <div
+   style="margin: auto"
+   class="bg-neutral-300 w-full lg:w-2/3 h-3/4 border-4"
+  >
+   <div class="p-1 font-mono" style="height: 10%">
+    <div
+     class="p-1 text-gray-300 flex items-center justify-between bg-blue-800"
+    >
+     <div class="flex text-xs gap-1 px-1">
+      <img src="../assets/directory_open_cool-1.png" alt="" class="w-4 h-4" />
+      <div class="">{{ props.name }}</div>
+     </div>
+
+     <div class="flex gap-1">
+      <button class="modal-control-btn close" @click="useShow.toggleOff">
+       <Icon name="mdi:window-minimize" class="w-3 h-3" />
+      </button>
+      <button class="modal-control-btn" disabled>
+       <Icon name="mdi:window-maximize" />
+      </button>
+      <button class="modal-control-btn close" @click="useShow.toggleOff">
+       <Icon name="mdi:window-close" />
+      </button>
+     </div>
     </div>
    </div>
-   <div class="modal-text">
-    <slot />
+   <div style="height: 90%" class="px-1 pb-1 sm:px-3 sm:pb-3">
+    <div class="p-2 sm:p-3 retro-border border-4 bg-zinc-300 h-full">
+     <div
+      class="p-2 border-r-slate-200 border-b-slate-200 border-l-neutral-400 border-t-neutral-400 border-neutral-300 border-4 h-full overflow-y-scroll relative text-slate-600"
+     >
+      <slot />
+     </div>
+    </div>
    </div>
   </div>
  </div>
 </template>
 
 <style lang="scss">
+::-webkit-scrollbar {
+ width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+ @apply bg-slate-100;
+ box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+ background-color: darkgrey;
+}
 body {
  font-family: Arial, Helvetica, sans-serif;
 }
@@ -58,6 +78,7 @@ body {
  position: fixed; /* Stay in place */
  z-index: 1; /* Sit on top */
  //  padding: 1rem;
+
  left: 0;
  top: 0;
  width: 100%; /* Full width */
@@ -66,145 +87,13 @@ body {
  background-color: rgb(0, 0, 0); /* Fallback color */
  background-color: rgba(190, 190, 190, 0.4); /* Black w/ opacity */
 }
-
-/* Modal Content */
-
-.modal-content {
- position: relative;
- margin: auto;
- background-color: #d4d4d4;
- border: 1px solid #888;
- width: 100%;
- height: 80%;
-
- box-shadow: 3px 2.5px 2px rgba(138, 138, 138, 0.5);
- .img-group {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  div {
-   display: flex;
-   flex-direction: column;
-   span {
-    // padding: 0.5rem;
-    text-align: center;
-   }
-  }
-  img {
-   filter: blur(1px);
-   width: 12rem;
-  }
- }
-
- .modal-text {
-  color: #7d7c7c;
-  height: inherit;
-  font-size: 12px;
-  padding: 1rem;
-  overflow-y: scroll;
-  padding-bottom: 2rem;
-
-  ::-webkit-scrollbar {
-   width: 2px;
-  }
-  @media only screen and (min-width: 992px) {
-   height: 80%;
-  }
- }
- .decorator-buttons {
-  display: flex;
-  align-items: center;
-
-  img {
-   height: 1rem;
-  }
-  .decorator-btn {
-   margin-right: 1px;
-   padding: 0.3rem 0.5rem;
-   border: 2px solid #bebdbd;
-   background: #bebdbd;
-   font-size: 12px;
-   cursor: pointer;
-   &:hover {
-    border-top: 2px solid #cccccc;
-    border-right: 2px solid #7b7b7b;
-    border-bottom: 2px solid #7b7b7b;
-    border-left: 2px solid #cccccc;
-   }
-  }
- }
- .modal-control {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  font-family: monospace;
-  background: #bebdbd;
-  padding: 0.1rem 0.4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 2px solid #dedede;
-  border-right: 2px solid #7b7b7b;
-  border-bottom: 2px solid #7b7b7b;
-  border-left: 2px solid #dedede;
- }
- .underline {
-  text-decoration: underline;
- }
-
- @media only screen and (min-width: 768px) {
- }
- @media only screen and (min-width: 992px) {
-  width: 75%;
-  height: 70%;
- }
-
- @media only screen and (min-width: 1200px) {
-  width: 50%;
+.decorator-btn {
+ @apply bg-neutral-300 text-neutral-700  border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 border-2 border-neutral-300 flex items-center justify-center px-1;
+}
+.modal-control-btn {
+ @apply bg-neutral-300 text-neutral-700 w-6 h-6 border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 border-4 border-neutral-300 flex items-center justify-center;
+ svg {
+  @apply w-4 h-4;
  }
 }
-.modal-btn-group {
- display: flex;
-}
-button {
- width: fit-content;
- color: black;
- display: flex;
- justify-content: center;
- align-items: center;
- height: fit-content;
- margin-left: 0.2rem;
- background: rgb(223, 223, 223);
- background: linear-gradient(
-  132deg,
-  rgb(206, 206, 206) 26%,
-  rgba(192, 192, 192, 1) 100%
- );
- border-top: 3px solid #dcdcdc;
- border-right: 3px solid #7b7b7b;
- border-bottom: 3px solid #7b7b7b;
- border-left: 3px solid #dcdcdc;
-
- &:focus {
-  background: rgb(223, 223, 223);
-  background: linear-gradient(
-   340deg,
-   rgba(223, 223, 223, 1) 26%,
-   rgb(171, 171, 171) 100%
-  );
-  border-top: 3px solid #cccccc;
-  border-right: 3px solid #7b7b7b;
-  border-bottom: 3px solid #7b7b7b;
-  border-left: 3px solid #cccccc;
- }
-}
-.retro-border {
- border-top: 3px solid #cccccc;
- border-right: 3px solid #7b7b7b;
- border-bottom: 3px solid #7b7b7b;
- border-left: 3px solid #cccccc;
-}
-/* The Close Button */
 </style>

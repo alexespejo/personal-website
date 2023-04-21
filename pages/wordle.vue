@@ -118,42 +118,45 @@ watch(query, () => {
 </script>
 
 <template>
- <main>
-  <span v-show="table.gameEnd" class="modal">
-   <span v-if="table.win">WINNER</span>
-   <span v-else>LOSER</span>
-   <span>Word: {{ table.target }}</span>
-   <a href="/wordle" style="border: 2px white solid; color: white"
-    >Play Again</a
-   >
-  </span>
-  <div class="table">
-   <span style="text-align: center"
-    >{{ table.gameEnd ? table.target : "..." }}
-   </span>
-   <div
-    v-for="(row, rowIndex) in tableDisplay"
-    class="table-rows"
-    :key="rowIndex"
-   >
-    <span
-     v-for="(node, nodeIndex) in row"
-     class="table-node"
-     :key="nodeIndex"
-     :class="letterChecker(nodeIndex, rowIndex, node)"
+ <NuxtLayout>
+  <main class="flex items-center">
+   <span v-show="table.gameEnd" class="modal">
+    <span v-if="table.win">WINNER</span>
+    <span v-else>LOSER</span>
+    <span>Word: {{ table.target }}</span>
+    <a href="/wordle" style="border: 2px white solid; color: white"
+     >Play Again</a
     >
-     <span v-if="node !== 0">{{ node }}</span>
+   </span>
+   <div class="table w-fit bg-zinc-300">
+    <span style="text-align: center"
+     >{{ table.gameEnd ? table.target : "..." }}
     </span>
+    <div
+     v-for="(row, rowIndex) in tableDisplay"
+     class="table-rows w-fit"
+     :key="rowIndex"
+    >
+     <span
+      v-for="(node, nodeIndex) in row"
+      class="table-node w-11 h-11"
+      :key="nodeIndex"
+      :class="letterChecker(nodeIndex, rowIndex, node)"
+     >
+      <span v-if="node !== 0">{{ node }}</span>
+     </span>
+    </div>
    </div>
-  </div>
-  <input
-   v-model="query"
-   @keyup.enter="pushToMatrix"
-   id="query-input"
-   :disabled="table.gameEnd"
-  />
-  <NuxtLink to="/" v-show="table.gameEnd">Reset</NuxtLink>
- </main>
+   <input
+    v-model="query"
+    @keyup.enter="pushToMatrix"
+    id="query-input"
+    class="bg-zinc-300"
+    :disabled="table.gameEnd"
+   />
+   <NuxtLink to="/wordle" v-show="table.gameEnd">Reset</NuxtLink>
+  </main>
+ </NuxtLayout>
 </template>
 
 <style lang="scss" scoped>
@@ -197,7 +200,7 @@ main {
 .table {
  display: flex;
  flex-direction: column;
- width: 350px;
+
  border: 0.5px solid black;
 }
 .table-rows {
@@ -210,8 +213,6 @@ main {
  align-items: center;
  justify-content: center;
  border: 0.5px solid black;
- width: 70px;
- height: 70px;
 }
 .green-pos {
  background-color: rgb(74 222 128);
