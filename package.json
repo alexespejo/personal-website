@@ -10,11 +10,13 @@
   },
   "devDependencies": {
     "nuxt": "^3.3.2",
+    "nuxt-chatgpt": "^0.1.10",
     "nuxt-icon": "^0.3.3",
     "sass": "^1.60.0",
     "sass-loader": "^13.2.1"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@pinia/nuxt": "^0.4.8",
     "vue-simple-icons": "^7.5.0"
