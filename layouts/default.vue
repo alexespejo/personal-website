@@ -15,16 +15,16 @@ onMounted(() => {
 </script>
 
 <template>
- <nav class="navbar bg-neutral-300 text-zinc-500" id="navbar">
+ <nav class="navbar bg-neutral-300 text-zinc-500 flex items-center" id="navbar">
   <WarningUnderConstruction />
 
-  <div class="linkbar">
+  <!-- <div class="linkbar">
    <NuxtLink to="/" class="retro-border-hover">alexander espejo</NuxtLink>
    <button class="retro-border-hover">Q n A</button>
    <NuxtLink class="retro-border-hover">issues?</NuxtLink>
-  </div>
-  <div class="content flex items-center p-2 border-t-2 border-t-neutral-500">
-   <div class="btn-group flex gap-2">
+  </div> -->
+  <div class="content flex items-center">
+   <div class="btn-group flex gap-2 items-center">
     <a
      href="https://github.com/alexespejo?tab=overview&from=2022-03-01&to=2022-03-11"
      class="btn"
@@ -61,10 +61,10 @@ body {
  overflow: hidden;
 }
 nav {
- height: 16vh;
+ height: 12vh;
 }
 main {
- height: 84vh;
+ height: 88vh;
 }
 
 .layout-body {
