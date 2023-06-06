@@ -66,7 +66,7 @@ onUpdated(() => {
    <div style="height: 90%" class="px-1 pb-1 sm:px-3 sm:pb-3">
     <div class="p-2 sm:p-3 retro-border border-4 bg-zinc-300 h-full">
      <div
-      class="p-2 border-r-slate-200 border-b-slate-200 border-l-neutral-400 border-t-neutral-400 border-neutral-300 border-4 h-full overflow-y-scroll relative text-slate-600"
+      class="p-2 border-r-slate-200 border-b-slate-200 border-l-neutral-400 border-t-neutral-400 border-neutral-300 border-4 h-full overflow-y-auto relative text-slate-600"
      >
       <slot />
      </div>

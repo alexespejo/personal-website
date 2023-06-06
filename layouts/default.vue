@@ -17,7 +17,9 @@ onMounted(() => {
 <template>
  <nav class="navbar bg-neutral-300 text-zinc-500 flex items-center" id="navbar">
   <WarningUnderConstruction />
-
+  <div
+   class="absolute right-1/2 w-10 h-10 bg-white sm:bg-black md:bg-red-500 lg:bg-blue-500 xl:bg-orange-500 hidden"
+  ></div>
   <!-- <div class="linkbar">
    <NuxtLink to="/" class="retro-border-hover">alexander espejo</NuxtLink>
    <button class="retro-border-hover">Q n A</button>
@@ -61,10 +63,10 @@ body {
  overflow: hidden;
 }
 nav {
- height: 12vh;
+ height: 10vh;
 }
 main {
- height: 88vh;
+ height: 90vh;
 }
 
 .layout-body {
@@ -90,7 +92,7 @@ main {
   .btn {
    @apply border-4 border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 flex items-center bg-neutral-300 p-0.5 hover:text-neutral-400;
    svg {
-    @apply h-12 w-12 sm:h-14 sm:w-14 2xl:h-16 2xl:w-16;
+    @apply h-10 w-10 sm:h-14 sm:w-14 2xl:h-16 2xl:w-16;
    }
   }
  }

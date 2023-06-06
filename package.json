@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "nuxt": "^3.3.2",
-    "nuxt-chatgpt": "^0.1.10",
     "nuxt-icon": "^0.3.3",
     "sass": "^1.60.0",
     "sass-loader": "^13.2.1"

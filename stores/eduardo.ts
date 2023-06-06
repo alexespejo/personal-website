@@ -41,6 +41,10 @@ export const useModals = defineStore("modals", () => {
    name: "trash",
    active: false,
   },
+  projects: {
+   name: "projects",
+   active: false,
+  },
   wordle: {
    name: "wordle",
    active: false,
@@ -74,6 +78,10 @@ export const useModals = defineStore("modals", () => {
   toggleOff();
   modals.wordle.active = true;
  }
+ function toggleProjectsModal() {
+  toggleOff();
+  modals.projects.active = true;
+ }
  function toggleOff() {
   head_control.value = false;
   modals.welcome.active = false;
@@ -82,6 +90,7 @@ export const useModals = defineStore("modals", () => {
   modals.contacts.active = false;
   modals.trash.active = false;
   modals.wordle.active = false;
+  modals.projects.active = false;
  }
 
  return {
@@ -92,6 +101,7 @@ export const useModals = defineStore("modals", () => {
   toggleContactsModal,
   toggleTrashModal,
   toggleWordleModal,
+  toggleProjectsModal,
   toggleOff,
   modalDisplay,
  };

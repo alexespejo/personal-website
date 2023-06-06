@@ -26,7 +26,7 @@ onUpdated(() => {
    <TechModal />
    <DocumentModal />
    <TrashModal />
-
+   <ProjectsModal />
    <div class="flex flex-col w-fit items-center p-3 static-icons">
     <div
      class="flex flex-col items-center justify-center w-fit cursor-pointer"
@@ -39,7 +39,7 @@ onUpdated(() => {
       src="../assets/computer_explorer-3.png"
      />
      <span style="font-size: 0.7rem; padding: 0.5rem" class="text-zinc-300"
-      >Hello World</span
+      >Welcome!</span
      >
     </div>
     <div
@@ -82,11 +82,15 @@ onUpdated(() => {
     @dblclick="modal.toggletechtackModal"
    >
     <img src="../assets/directory_control_panel-3.png" class="dragging-icon" />
-    <span class="dragging-text" id="press-test">technology</span>
+    <span class="dragging-text" id="press-test">skills</span>
    </Draggable>
-   <Draggable title="folder3" class="drag-pos-3">
+   <Draggable
+    title="projects-folder"
+    @dblclick="modal.toggleProjectsModal"
+    class="drag-pos-3"
+   >
     <img src="../assets/directory_closed-3.png" class="dragging-icon" />
-    <span class="dragging-text">im broken</span>
+    <span class="dragging-text">projects</span>
    </Draggable>
    <Draggable title="folder2" class="drag-pos-2">
     <ProfilePic class="dragging-icon" />
