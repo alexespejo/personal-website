@@ -12,15 +12,22 @@ const test = useModals();
  <button @click="test.toggleWelcomeModal">Welcome</button>
  <button @click="test.toggleDocumentsModal">documenets</button>
  <button @click="test.toggleContactsModal">documenets</button>
- <div class="pinia">Pinia</div>
+ <div class="pinia">
+  <div class="rotate-45 w-fit">Hello world</div>
+ </div>
 </template>
 
 <style scoped>
-#movable {
- top: 52.63157894736842%;
- left: 53.29815303430079%;
+.animated-div {
+ animation: growShrink 1s infinite ease-in-out alternate;
 }
-.pinia {
- @apply bg-black text-white text-3xl;
+/* Define the keyframes for the animation */
+@keyframes growShrink {
+ 0% {
+  transform: scale(1) rotate(45deg);
+ }
+ 100% {
+  transform: scale(1.2) rotate(45deg);
+ }
 }
 </style>

@@ -9,7 +9,7 @@ I love to develop software 🖥️ and build apps 📱 that can make a positive 
  </Head>
  <Modal name="welcome">
   <div class="welcome-content">
-   <span class="rainbow-shadow welcome-text">Welcome!!</span>
+   <span class="rainbow-shadow welcome-text animated-div">Welcome!!</span>
    <p>
     HIYA!!👋 😁 welcome to my website!!! 💯💯🔥🔥🔥🥳🇵🇭🤙
     <br />
@@ -32,6 +32,7 @@ I love to develop software 🖥️ and build apps 📱 that can make a positive 
      src="../assets/realProfilePic.png"
      alt="profile picture"
      id="profilePicture"
+     class="rotate-45"
     />
 
     <br />
@@ -163,6 +164,18 @@ I love to develop software 🖥️ and build apps 📱 that can make a positive 
  }
  100% {
   background-position: -500px 0;
+ }
+}
+.animated-div {
+ animation: growShrink 1s infinite ease-in-out alternate;
+}
+/* Define the keyframes for the animation */
+@keyframes growShrink {
+ 0% {
+  transform: scale(1);
+ }
+ 100% {
+  transform: scale(1.2);
  }
 }
 </style>

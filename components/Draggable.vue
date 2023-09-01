@@ -134,7 +134,7 @@ onMounted(() => {
 }
 /* Extra small devices (phones, 600px and down) */
 img {
- @apply w-14 h-14;
+ @apply w-14 h-14 xl:w-16 xl:h-16;
 }
 .draggable-element {
  cursor: pointer;
