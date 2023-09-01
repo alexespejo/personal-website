@@ -1,6 +1,6 @@
 <script setup>
 import { useModals } from "~~/stores/eduardo";
-const props = defineProps(["name", "mini"]);
+const props = defineProps(["name", "mini", "he"]);
 const id = ref(props.name + "-id");
 const useShow = useModals();
 const refFullScreen = ref(false);
@@ -31,7 +31,9 @@ onUpdated(() => {
  >
   <div
    class="bg-neutral-300 border-4 mx-auto mt-10"
-   :class="!props.mini ? 'w-full lg:w-2/3 h-3/4' : 'w-fit h-fit'"
+   :class="
+    !props.mini ? 'w-full lg:w-2/3 h-3/4' : `w-fit h-fit overflow-y-auto `
+   "
    :style="refFullScreen ? fullScreen : ''"
   >
    <div class="p-1 font-mono" style="height: 10%">
