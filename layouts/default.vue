@@ -92,7 +92,7 @@ main {
   .btn {
    @apply border-4 border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 flex items-center bg-neutral-300 p-0.5 hover:text-neutral-400;
    svg {
-    @apply h-10 w-10 sm:h-14 sm:w-14 2xl:h-16 2xl:w-16;
+    @apply h-10 w-10 sm:h-12 sm:w-12 2xl:h-16 2xl:w-16;
    }
   }
  }
