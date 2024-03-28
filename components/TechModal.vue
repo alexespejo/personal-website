@@ -33,32 +33,30 @@
    </div>
 
    <div class="tech-list">
-    <span>Technologies and languges I'm Familiar With</span>
+    <span>Languages and Libraries</span>
     <div class="divider"></div>
     <div class="icon-groups">
      <Icon name="mdi:language-html5" />
      <Icon name="mdi:language-css3" />
      <Icon name="mdi:language-javascript" />
-     <Icon name="mdi:language-python" />
-     <Icon name="mdi:tailwind" />
      <Icon name="mdi:language-typescript" />
-     <Icon name="mdi:sass" />
+     <Icon name="mdi:language-python" />
+     <Icon name="mdi:language-java" />
+     <Icon name="bxl:c-plus-plus" />
+
      <Icon name="mdi:react" />
      <Icon name="mdi:vuejs" />
+     <Icon name="tabler:brand-nextjs" />
+     <Icon name="tabler:brand-nuxt" />
      <Icon name="mdi:firebase" />
+     <Icon name="mdi:tailwind" />
+     <Icon name="mdi:sass" />
      <Icon name="mdi:material-design" />
      <Icon name="mdi:bootstrap" />
      <Icon name="simple-icons:opencv" />
      <Icon name="simple-icons:flask" />
-     <Icon name="tabler:brand-nextjs" />
-     <Icon name="tabler:brand-nuxt" />
     </div>
-    <span>I took a class for these so I'm gonna count them</span>
-    <div class="divider"></div>
-    <div class="icon-groups">
-     <Icon name="mdi:language-java" />
-     <Icon name="bxl:c-plus-plus" />
-    </div>
+
     <span>The tools I use in most projects</span>
     <div class="divider"></div>
     <div class="icon-groups">
@@ -73,16 +71,22 @@
     <span>Technologies I plan to learn</span>
     <div class="divider"></div>
     <div class="icon-groups">
-     <Icon name="file-icons:go-old" />
      <Icon name="bxl:aws" />
      <Icon name="simple-icons:pocketbase" />
-     <Icon name="carbon:logo-svelte" />
      <Icon name="akar-icons:postgresql-fill" />
      <Icon name="simple-icons:astro" />
      <Icon name="simple-icons:supabase" />
      <Icon name="simple-icons:tensorflow" />
      <Icon name="mdi:language-rust" />
      <Icon name="simple-icons:cockroachlabs" />
+    </div>
+    <span>Learning Right Now</span>
+    <div class="divider"></div>
+    <div class="icon-groups">
+     <Icon name="file-icons:go" />
+     <Icon name="simple-icons:pytorch" />
+     <Icon name="simple-icons:sqlite" />
+     <Icon name="carbon:logo-svelte" />
     </div>
    </div>
   </div>

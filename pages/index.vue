@@ -60,15 +60,11 @@ onUpdated(() => {
      class="flex flex-col items-center justify-center w-fit cursor-pointer"
      id="computer-icon "
     >
-     <a
-      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
-     >
-      <img
-       alt="my computer"
-       id="computer-image"
-       src="../assets/help_book_cool-3.png"
-      />
-     </a>
+     <img
+      alt="my computer"
+      id="computer-image"
+      src="../assets/help_book_cool-3.png"
+     />
 
      <span style="font-size: 0.7rem; padding: 0.5rem" class="text-zinc-300"
       >???</span

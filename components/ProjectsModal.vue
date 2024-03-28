@@ -18,11 +18,10 @@
    </details>
    <div class="project-box">
     <TechItem>React</TechItem>
-    <TechItem>Python</TechItem>
+    <TechItem>Flask</TechItem>
     <TechItem>SCSS</TechItem>
     <TechItem>Bootstrap</TechItem>
     <TechItem>Raspberry PI</TechItem>
-    <TechItem>Flask</TechItem>
     <TechItem>OpenCV</TechItem>
     <TechItem>Firebase</TechItem>
    </div>
@@ -104,6 +103,35 @@
     <TechItem>Vue</TechItem>
     <TechItem>TailwindCSS</TechItem>
     <TechItem>Python</TechItem>
+   </div>
+
+   <LinkHeader src="https://devpost.com/software/insightfullanterns"
+    >InsightfulLanterns</LinkHeader
+   >
+   <details open>
+    <summary>IrvineHacks 2023</summary>
+    Making the therapy accessible
+   </details>
+   <div class="project-box">
+    <TechItem>NextJS</TechItem>
+    <TechItem>Flask</TechItem>
+    <TechItem>Google Cloud</TechItem>
+    <TechItem>Natural Language Processing</TechItem>
+   </div>
+   <LinkHeader src=""
+    >Data Structure Visualizer
+    <span
+     class="text-xs py-1 px-2 border-2 border-red-400 rounded-full bg-red-200 text-red-400 animate-pulse"
+     >under construction</span
+    ></LinkHeader
+   >
+   <details open>
+    <summary>Orange Coast College</summary>
+    <span class="animate-pulse"> Pending...</span>
+   </details>
+   <div class="project-box">
+    <TechItem>Svelte</TechItem>
+    <TechItem>TalwindCSS</TechItem>
    </div>
   </div>
  </Modal>

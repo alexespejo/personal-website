@@ -9,24 +9,30 @@ I love to develop software 🖥️ and build apps 📱 that can make a positive 
  </Head>
  <Modal name="welcome">
   <div class="welcome-content font-serif">
-   <div class="flex flex-col sm:flex-row relative">
+   <div class="flex flex-col lg:flex-row relative border-b-2">
     <div
-     class="flex space-x-3 sm:space-x-0 sm:flex-col sm:space-y-5 sm:w-1/4 sm:border-r-2 items-center border-slate-800"
+     class="flex space-x-3 lg:space-x-0 lg:flex-col lg:space-y-5 lg:w-2/4 xl:w-1/4 lg:border-r-2 items-center border-slate-800"
     >
-     <img
-      src="../assets/profile.png"
-      alt="My Pfp"
-      class="w-40 h-40 sm:w-48 sm:h-48"
-     />
-     <h1 class="text-xl flex flex-col">
-      <span class="text-lg"> Hiya!! my name is</span>
-      <span class="block text-3xl"> Alex Espejo</span>
-     </h1>
-     <ul class="hidden w-full text-sm sm:flex flex-col space-y-2 pr-1">
+     <div
+      class="w-1/2 flex flex-col items-center justify-center sm:flex-row md:flex-col sm:space-x-2 lg:w-full"
+     >
+      <img
+       src="../assets/profile.png"
+       alt="My Pfp"
+       class="w-40 h-40 sm:w-48 sm:h-48 border-4 border-r-slate-500 border-b-slate-500 border-l-gray-200 border-t-gray-200 p-2"
+      />
+      <h1 class="text-xl flex flex-col">
+       <span class="sm:text-sm text-lg"> Hiya!! my name is</span>
+       <span class="block text-2xl"> Alex Espejo</span>
+      </h1>
+     </div>
+     <ul
+      class="w-1/2 text-xs lg:w-full sm:text-sm lg:flex flex-col space-y-2 pr-1"
+     >
       <label class="font-bold">Skills:</label>
       <li class="">
        JavaScript: 100%
-       <div class="w-full h-1 bg-slate-800"></div>
+       <div class="hover:w-full h-1 bg-slate-800"></div>
       </li>
       <li class="">
        HTML/CSS: 100%
@@ -54,12 +60,12 @@ I love to develop software 🖥️ and build apps 📱 that can make a positive 
       </li>
       <li class="">
        Go: 50%
-       <div class="w-5/6 h-1 bg-slate-800"></div>
+       <div class="w-1/2 h-1 bg-slate-800"></div>
       </li>
      </ul>
     </div>
     <div
-     class="sm:w-3/4 sm:p-3 space-y-3 sm:text-xl h-full flex flex-col justify-center"
+     class="lg:w-3/4 sm:p-3 space-y-3 sm:text-xl h-full flex flex-col justify-center"
     >
      <div class="">
       I'm a self-taught frontend developer and student at
