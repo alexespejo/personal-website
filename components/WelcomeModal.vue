@@ -69,9 +69,8 @@ I love to develop software 🖥️ and build apps 📱 that can make a positive 
     >
      <div class="">
       I'm a self-taught frontend developer and student at
-      <span class="text-blue-600 font-bold">Orange Coast College</span> 🎓
-      majoring in <span class="text-blue-600 font-bold">Computer Science</span>.
-      👨‍💻
+      <span class="text-blue-600 font-bold">UC Irvine</span> 🎓 majoring in
+      <span class="text-blue-600 font-bold">Computer Science</span>. 👨‍💻
      </div>
      <div class="">
       I love to develop software and build applications that can make a
