@@ -1,6 +1,9 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "engines": {
+    "node": "^18.18.0 || ^20.9.0 || ^22.0.0"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
