@@ -55,38 +55,15 @@
      <Icon name="mdi:bootstrap" />
      <Icon name="simple-icons:opencv" />
      <Icon name="simple-icons:flask" />
-    </div>
-
-    <span>The tools I use in most projects</span>
-    <div class="divider"></div>
-    <div class="icon-groups">
      <Icon name="akar-icons:vscode-fill" />
      <Icon name="simple-icons:vim" />
      <Icon name="tabler:brand-openai" />
      <Icon name="mdi:git" />
      <Icon name="mdi:github" />
      <Icon name="tabler:brand-figma" />
-    </div>
-
-    <span>Technologies I plan to learn</span>
-    <div class="divider"></div>
-    <div class="icon-groups">
-     <Icon name="bxl:aws" />
-     <Icon name="simple-icons:pocketbase" />
      <Icon name="akar-icons:postgresql-fill" />
      <Icon name="simple-icons:astro" />
      <Icon name="simple-icons:supabase" />
-     <Icon name="simple-icons:tensorflow" />
-     <Icon name="mdi:language-rust" />
-     <Icon name="simple-icons:cockroachlabs" />
-    </div>
-    <span>Learning Right Now</span>
-    <div class="divider"></div>
-    <div class="icon-groups">
-     <Icon name="file-icons:go" />
-     <Icon name="simple-icons:pytorch" />
-     <Icon name="simple-icons:sqlite" />
-     <Icon name="carbon:logo-svelte" />
     </div>
    </div>
   </div>
@@ -99,8 +76,12 @@
 }
 .icon-groups {
  @apply flex gap-5 mb-3 flex-wrap;
+ > * {
+  @apply w-10 h-10 flex-none;
+ }
+
  svg {
-  @apply w-10 h-10 text-neutral-400;
+  @apply w-full h-full text-neutral-400;
  }
 }
 .tech-list {

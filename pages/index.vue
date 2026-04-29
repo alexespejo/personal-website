@@ -22,26 +22,11 @@ onUpdated(() => {
 <template>
  <NuxtLayout>
   <main class="">
-   <WelcomeModal />
    <TechModal />
    <DocumentModal />
    <TrashModal />
    <ProjectsModal />
    <div class="flex flex-col w-fit items-center p-3 static-icons">
-    <div
-     class="flex flex-col items-center justify-center w-fit cursor-pointer"
-     id="computer-icon"
-     @click="modal.toggleWelcomeModal"
-    >
-     <img
-      alt="my computer"
-      id="computer-image"
-      src="../assets/computer_explorer-3.png"
-     />
-     <span style="font-size: 0.7rem; padding: 0.5rem" class="text-zinc-300"
-      >Welcome!</span
-     >
-    </div>
     <div
      class="flex flex-col items-center justify-center w-fit cursor-pointer"
      id="computer-icon "

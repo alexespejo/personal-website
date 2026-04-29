@@ -26,16 +26,6 @@
      >
     </span>
    </div>
-
-   <div>
-    <Icon name="material-symbols:mail" /> Email:
-    <span class="text-blue-800 underline block indent-4"
-     >aespejo102@gmail.com</span
-    >
-    <span class="text-blue-800 underline block indent-4"
-     >aespejo@ccc.student.edu</span
-    >
-   </div>
   </section>
  </Modal>
 

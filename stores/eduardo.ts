@@ -21,10 +21,6 @@ export const useModals = defineStore("modals", () => {
   block: "block",
  });
  const modals = reactive({
-  welcome: {
-   name: "welcome",
-   active: true,
-  },
   techstack: {
    name: "techstack",
    active: false,
@@ -54,10 +50,6 @@ export const useModals = defineStore("modals", () => {
  function modalDisplay(e: any) {
   return e ? displays.block : displays.none;
  }
- function toggleWelcomeModal() {
-  toggleOff();
-  modals.welcome.active = true;
- }
  function toggletechtackModal() {
   toggleOff();
   modals.techstack.active = true;
@@ -84,7 +76,6 @@ export const useModals = defineStore("modals", () => {
  }
  function toggleOff() {
   head_control.value = false;
-  modals.welcome.active = false;
   modals.techstack.active = false;
   modals.documents.active = false;
   modals.contacts.active = false;
@@ -95,7 +86,6 @@ export const useModals = defineStore("modals", () => {
 
  return {
   modals,
-  toggleWelcomeModal,
   toggletechtackModal,
   toggleDocumentsModal,
   toggleContactsModal,

@@ -90,9 +90,15 @@ main {
   @apply px-2 h-3/4;
 
   .btn {
-   @apply border-4 border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 flex items-center bg-neutral-300 p-0.5 hover:text-neutral-400;
-   svg {
+   @apply border-4 border-r-slate-500 border-b-slate-500 border-l-neutral-200 border-t-neutral-200 flex items-center justify-center bg-neutral-300 p-1 hover:text-neutral-400 h-full aspect-square;
+
+   .icon {
     @apply h-10 w-10 sm:h-12 sm:w-12 2xl:h-16 2xl:w-16;
+   }
+
+   /* Nuxt Icon v2 can wrap the svg; keep it filling our size box */
+   .icon svg {
+    @apply h-full w-full;
    }
   }
  }

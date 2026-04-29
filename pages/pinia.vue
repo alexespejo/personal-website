@@ -4,12 +4,10 @@ const count = useCounterStore();
 const test = useModals();
 </script>
 <template>
- <WelcomeModal />
  <TechModal />
  <DocumentModal />
  <ContactsModal />
  <Draggable title="movable" class="tester"> Hello World </Draggable>
- <button @click="test.toggleWelcomeModal">Welcome</button>
  <button @click="test.toggleDocumentsModal">documenets</button>
  <button @click="test.toggleContactsModal">documenets</button>
  <div class="pinia">
