@@ -48,7 +48,7 @@ let words = [
 ];
 let query = ref("");
 
-let table = reactive({
+const createTableState = () => ({
  matrix: [
   [0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0],
@@ -63,6 +63,15 @@ let table = reactive({
  gameEnd: false,
  win: false,
 });
+
+let table = reactive({
+ ...createTableState(),
+});
+
+const resetGame = () => {
+ query.value = "";
+ Object.assign(table, createTableState());
+};
 
 const letterChecker = (nodeIndex, rowIndex, node) => {
  const str = table.target.toUpperCase().split("");
@@ -123,9 +132,9 @@ watch(query, () => {
    <span v-if="table.win">WINNER</span>
    <span v-else>LOSER</span>
    <span>Word: {{ table.target }}</span>
-   <a href="/wordle" style="border: 2px white solid; color: white"
-    >Play Again</a
-   >
+    <button style="border: 2px white solid; color: white" @click="resetGame">
+     Play Again
+    </button>
   </span>
   <div class="table w-fit bg-zinc-300">
    <span style="text-align: center" class=""
@@ -153,7 +162,7 @@ watch(query, () => {
    class="bg-zinc-300 border-2 border-black border-dotted"
    :disabled="table.gameEnd"
   />
-  <NuxtLink to="/wordle" v-show="table.gameEnd">Reset</NuxtLink>
+    <button v-show="table.gameEnd" @click="resetGame">Reset</button>
  </main>
 </template>
 
